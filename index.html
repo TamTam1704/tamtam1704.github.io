@@ -1,53 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio by TamTam</title>
-  <link rel="stylesheet" href="styles.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
- </head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#497fe8"><meta name="description" content="Tam — Video Editor & Game Creative. A little imagination. A lot of play. Explore trailers, game ads and short-form stories."><title>Tam • Video Editor & Game Creative</title><link rel="stylesheet" href="style.css"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='24' fill='%234478f2'/%3E%3Ctext x='40' y='57' text-anchor='middle' font-size='55' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E"></head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1>Hi, my name is TamTam</h1>
-      <p>I'm a video editor</p>
-    </section>
-
-    <section class="projects">
-      <h2>Projects</h2>
-      <div class="project-container">
-        <!-- Các dự án sẽ được thêm vào đây bằng JavaScript -->
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>Liên hệ</h2>
-      <div class="contact-links">
-        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 present by TamTam. Đã đăng ký bản quyền.</p>
-  </footer>
-
-  <script src="script.js"></script>
-  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
-</body>
-</html>
+<svg class="icons" xmlns="http://www.w3.org/2000/svg"><symbol id="game" viewBox="0 0 24 24"><path d="M7 6h10c3 0 4 3 5 10 .4 3-2 4-4 2l-3-3H9l-3 3c-2 2-4.4 1-4-2C3 9 4 6 7 6Z" fill="currentColor"/><path d="M7 9v5m-2.5-2.5h5" stroke="#4475e8" stroke-width="1.8"/><circle cx="16" cy="10" r="1" fill="#4475e8"/><circle cx="19" cy="13" r="1" fill="#4475e8"/></symbol><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+<div class="world" id="home">
+<header class="nav wrap"><a href="#home" class="brand" aria-label="Tam home"><svg><use href="#game"/></svg>Tam<span class="brand-star">✦</span></a><nav aria-label="Main navigation"><a href="#home" class="active">Home</a><a href="#projects">Projects</a><button data-modal="about">About</button><button data-modal="contact">Contact</button></nav><a class="button yellow nav-cta" href="#projects">View work <svg><use href="#arrow"/></svg></a></header>
+<main>
+<section class="hero wrap" aria-labelledby="hero-title"><div class="hero-copy"><div class="eyebrow"><svg><use href="#game"/></svg> VIDEO EDITOR & GAME CREATIVE</div><h1 id="hero-title">Edit stories.<br><span>Make them<br class="mobile-break"> memorable.</span></h1><p>Hi, I'm Tam. I turn game moments into<br class="desktop-break"> trailers, ads, and stories worth watching.</p><a class="button yellow hero-cta" href="#projects">Explore my work <svg><use href="#arrow"/></svg></a><div class="little-note">A little imagination. A lot of play. <span>✧</span></div></div><span class="hero-caption">Small edits.<br>Big feelings. ♡</span></section>
+<section class="projects wrap" id="projects" aria-labelledby="projects-title"><div class="section-heading"><h2 id="projects-title"><svg><use href="#game"/></svg>Selected projects</h2><span class="sample-note">DEMO COLLECTION</span></div><div class="filter-row" role="group" aria-label="Filter projects"><button class="filter selected" data-filter="all" aria-pressed="true">All work <span>03</span></button><button class="filter" data-filter="Trailer" aria-pressed="false">Trailers</button><button class="filter" data-filter="UA Ads" aria-pressed="false">Game ads</button><button class="filter" data-filter="Social Content" aria-pressed="false">Social content</button></div><div class="project-grid">
+<button class="project-card" data-project="0" data-category="Trailer"><img src="assets/myth.webp" alt="A floating fantasy castle in a blue sky" width="402" height="162"><span class="category">Trailer</span><span class="play" aria-hidden="true">▶</span><span class="card-bottom"><span><strong>Mythic Heroes</strong><small>Cinematic trailer</small></span><span class="card-arrow"><svg><use href="#arrow"/></svg></span></span></button>
+<button class="project-card" data-project="1" data-category="UA Ads"><img src="assets/bloom.webp" alt="Pink-haired cartoon character in a colorful flower world" width="402" height="161"><span class="category">UA Ads</span><span class="play" aria-hidden="true">▶</span><span class="card-bottom"><span><strong>Puzzle Bloom</strong><small>User acquisition creative</small></span><span class="card-arrow"><svg><use href="#arrow"/></svg></span></span></button>
+<button class="project-card" data-project="2" data-category="Social Content"><img src="assets/play.webp" alt="Playful corgi character in a bright mobile game world" width="404" height="161"><span class="category">Social Content</span><span class="play" aria-hidden="true">▶</span><span class="card-bottom"><span><strong>Play Together</strong><small>Short-form stories</small></span><span class="card-arrow"><svg><use href="#arrow"/></svg></span></span></button>
+</div><p class="demo-caption">Concept previews from the visual reference · Original project videos coming soon.</p></section>
+<section class="contact wrap"><div><span class="kicker">LET'S CREATE TOGETHER</span><h2>Your next game.<br class="mobile-break"> A great story.</h2><p>Have something fun in mind? Let's bring it to life.</p></div><button class="button yellow" data-modal="contact">Let's talk <svg><use href="#arrow"/></svg></button><span class="contact-spark" aria-hidden="true">✧</span></section>
+</main><footer class="wrap"><span>© <span id="year">2026</span> Tam · Made with a playful mind.</span><a href="#home">Back to top ↑</a></footer></div>
+<dialog id="detail"><button class="close" aria-label="Close dialog">×</button><div id="modal-content"></div></dialog><script src="app.js"></script></body></html>
