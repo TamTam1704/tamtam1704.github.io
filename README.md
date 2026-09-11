@@ -2,6 +2,10 @@
 
 Website tĩnh dành cho GitHub Pages. Không cần cài đặt hoặc build.
 
+Giao diện hiện tại dùng dark mobile-game theme trong `styles/dark-theme.css`.
+File này được tải cuối trong `index.html`, nên bạn có thể chỉnh màu, panel,
+button, project card và popup mà không cần sửa giao diện gốc.
+
 ## Cấu trúc dễ chỉnh sửa
 
 - `components/home.html`: nội dung trang Home.
@@ -11,6 +15,7 @@ Website tĩnh dành cho GitHub Pages. Không cần cài đặt hoặc build.
 - `data/projects.js`: thêm, xoá, sửa project và link video.
 - `data/i18n.js`: sửa toàn bộ câu chữ tiếng Anh và tiếng Việt.
 - `styles/game-ui.css`: màu sắc, panel, button và popup.
+- `styles/dark-theme.css`: lớp giao diện dark đang được sử dụng.
 - `styles/animations.css`: tốc độ và hiệu ứng chuyển động.
 - `styles/responsive.css`: giao diện điện thoại và tablet.
 - `scripts/app.js`: chuyển tab, lọc project và mở popup.
