@@ -1,21 +1,99 @@
 <section class="menu-view wrap view-enter" aria-labelledby="about-title">
-  <div class="game-panel profile-panel">
-    <div class="profile-avatar">
-      <div class="avatar-ring">
-        <img src="assets/avatar.webp" alt="Tam profile photo">
+  <div class="game-panel profile-panel profile-panel-expanded">
+    <div class="profile-intro">
+      <div class="profile-avatar">
+        <div class="avatar-ring">
+          <img src="assets/avatar.webp" alt="Tam profile photo">
+        </div>
+        <i class="online-dot"></i>
+        <b>LV.08</b>
       </div>
-      <i class="online-dot"></i><b>LV.08</b></div>
-    <div class="profile-copy">
-      <span class="panel-kicker" data-i18n="about.kicker">PLAYER PROFILE</span>
-      <h1 id="about-title" data-i18n="about.title">Hi, I’m Tam.</h1>
-      <p data-i18n="about.p1">I’m an outgoing video editor who enjoys fresh ideas and creative challenges.</p>
-      <p data-i18n="about.p2">Outside of editing, I enjoy filmmaking, photography, travel, and sports.</p>
-      <div class="skill-list">
-        <div><span data-i18n="about.skill1">Video Editing</span><i style="--value:92%"></i></div>
-        <div><span data-i18n="about.skill2">Game Creative</span><i style="--value:86%"></i></div>
-        <div><span data-i18n="about.skill3">Visual Stories</span><i style="--value:89%"></i></div>
+
+      <div class="profile-copy">
+        <span class="panel-kicker" data-i18n="about.kicker">PLAYER PROFILE</span>
+        <h1 id="about-title" data-i18n="about.title">Hi, I’m Tam.</h1>
+        <p data-i18n="about.p1">I’m an outgoing video editor who enjoys fresh ideas and creative challenges.</p>
+        <p data-i18n="about.p2">Outside of editing, I enjoy filmmaking, photography, travel, and sports.</p>
       </div>
-      <button class="game-button yellow game-press" data-route="contact"><span data-i18n="about.contact">Contact me</span> <svg><use href="#icon-arrow"/></svg></button>
     </div>
+
+    <div class="profile-sections">
+      <section class="profile-section" aria-labelledby="education-title">
+        <div class="section-heading">
+          <span>01</span>
+          <div>
+            <small data-i18n="about.educationLabel">ACADEMY LOG</small>
+            <h2 id="education-title" data-i18n="about.education">Education</h2>
+          </div>
+        </div>
+
+        <article class="career-card">
+          <div class="career-card-top">
+            <div>
+              <small data-i18n="about.degreeLabel">PROGRAM</small>
+              <h3 data-i18n="about.degree">Multimedia / Video Editing</h3>
+            </div>
+            <time data-i18n="about.educationDate">20XX – 20XX</time>
+          </div>
+          <p class="career-place" data-i18n="about.school">Your school or training center</p>
+          <p data-i18n="about.educationDesc">Add your major, key subjects, and the skills you learned here.</p>
+        </article>
+      </section>
+
+      <section class="profile-section" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <span>02</span>
+          <div>
+            <small data-i18n="about.experienceLabel">MISSION HISTORY</small>
+            <h2 id="experience-title" data-i18n="about.experience">Work Experience</h2>
+          </div>
+        </div>
+
+        <article class="career-card">
+          <div class="career-card-top">
+            <div>
+              <small data-i18n="about.positionLabel">POSITION</small>
+              <h3 data-i18n="about.position">Video Editor</h3>
+            </div>
+            <time data-i18n="about.workDate">20XX – Present</time>
+          </div>
+          <p class="career-place" data-i18n="about.company">Your company · Your city</p>
+          <p data-i18n="about.workDesc">Describe the videos you create, your main responsibilities, and the results you achieved.</p>
+        </article>
+      </section>
+    </div>
+
+    <section class="profile-section skills-section" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <span>03</span>
+        <div>
+          <small data-i18n="about.skillsLabel">PLAYER STATS</small>
+          <h2 id="skills-title" data-i18n="about.skills">Core Skills</h2>
+        </div>
+      </div>
+
+      <div class="skill-list">
+        <div class="skill-item">
+          <span data-i18n="about.skill1">Video Editing</span>
+          <b>92%</b>
+          <i style="--value:92%"></i>
+        </div>
+        <div class="skill-item">
+          <span data-i18n="about.skill2">Game Creative</span>
+          <b>86%</b>
+          <i style="--value:86%"></i>
+        </div>
+        <div class="skill-item">
+          <span data-i18n="about.skill3">Visual Stories</span>
+          <b>89%</b>
+          <i style="--value:89%"></i>
+        </div>
+      </div>
+
+      <button class="game-button yellow game-press" data-route="contact">
+        <span data-i18n="about.contact">Contact me</span>
+        <svg><use href="#icon-arrow"/></svg>
+      </button>
+    </section>
   </div>
 </section>
