@@ -9,6 +9,7 @@ Website tĩnh dành cho GitHub Pages. Không cần cài đặt hoặc build.
 - `components/about.html`: giới thiệu và kỹ năng.
 - `components/contact.html`: email, LinkedIn và showreel.
 - `data/projects.js`: thêm, xoá, sửa project và link video.
+- `data/i18n.js`: sửa toàn bộ câu chữ tiếng Anh và tiếng Việt.
 - `styles/game-ui.css`: màu sắc, panel, button và popup.
 - `styles/animations.css`: tốc độ và hiệu ứng chuyển động.
 - `styles/responsive.css`: giao diện điện thoại và tablet.
@@ -17,6 +18,10 @@ Website tĩnh dành cho GitHub Pages. Không cần cài đặt hoặc build.
 ## Xem thử trên máy
 
 Website tải các component bằng JavaScript nên cần một local server. Trong VS Code, cài extension **Live Server**, sau đó bấm chuột phải vào `index.html` → **Open with Live Server**.
+
+## Ngôn ngữ
+
+Website mặc định dùng tiếng Anh và có nút `EN / VI`. Lựa chọn của người xem được ghi nhớ trên trình duyệt. Muốn sửa câu chữ, mở `data/i18n.js`.
 
 ## Đăng lên GitHub Pages
 

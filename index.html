@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/game-ui.css">
   <link rel="stylesheet" href="styles/animations.css">
   <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="styles/language.css">
 </head>
 <body>
   <svg class="svg-library" aria-hidden="true">
@@ -32,26 +33,33 @@
         <span>Tam</span><b>✦</b>
       </button>
       <nav class="game-tabs" aria-label="Portfolio pages">
-        <button class="game-tab is-active" data-route="home"><svg><use href="#icon-home"/></svg><span>Home</span></button>
-        <button class="game-tab" data-route="projects"><svg><use href="#icon-game"/></svg><span>Projects</span></button>
-        <button class="game-tab" data-route="about"><svg><use href="#icon-user"/></svg><span>About</span></button>
-        <button class="game-tab" data-route="contact"><svg><use href="#icon-mail"/></svg><span>Contact</span></button>
+        <button class="game-tab is-active" data-route="home"><svg><use href="#icon-home"/></svg><span data-i18n="nav.home">Home</span></button>
+        <button class="game-tab" data-route="projects"><svg><use href="#icon-game"/></svg><span data-i18n="nav.projects">Projects</span></button>
+        <button class="game-tab" data-route="about"><svg><use href="#icon-user"/></svg><span data-i18n="nav.about">About</span></button>
+        <button class="game-tab" data-route="contact"><svg><use href="#icon-mail"/></svg><span data-i18n="nav.contact">Contact</span></button>
       </nav>
-      <button class="game-button yellow compact game-press" data-route="projects">View work <svg><use href="#icon-arrow"/></svg></button>
+      <div class="top-actions">
+        <div class="language-switch" role="group" aria-label="Language">
+          <button class="is-active game-press" data-lang="en" aria-pressed="true">EN</button>
+          <button class="game-press" data-lang="vi" aria-pressed="false">VI</button>
+        </div>
+        <button class="game-button yellow compact game-press nav-work" data-route="projects"><span data-i18n="nav.viewWork">View work</span> <svg><use href="#icon-arrow"/></svg></button>
+      </div>
     </header>
 
     <main id="screen" class="screen" aria-live="polite"></main>
-    <footer class="wrap"><span>© <span id="year"></span> Tam · Made with a playful mind.</span><button data-route="home">Back home ↑</button></footer>
+    <footer class="wrap"><span>© <span id="year"></span> Tam · <span data-i18n="footer.line">Made with a playful mind.</span></span><button data-route="home" data-i18n="footer.back">Back home ↑</button></footer>
   </div>
 
   <dialog id="game-popup" class="game-popup">
     <div class="popup-frame">
-      <div class="popup-titlebar"><span id="popup-label">PROJECT DETAILS</span><button class="popup-close game-press" aria-label="Close popup">×</button></div>
+      <div class="popup-titlebar"><span id="popup-label" data-i18n="popup.label">PROJECT DETAILS</span><button class="popup-close game-press" aria-label="Close popup">×</button></div>
       <div id="popup-content" class="popup-content"></div>
     </div>
   </dialog>
 
   <div id="loading" class="loading-screen" aria-label="Loading"><div class="loading-logo"><svg><use href="#icon-game"/></svg></div><div class="loading-bar"><i></i></div></div>
+  <script src="data/i18n.js"></script>
   <script src="data/projects.js"></script>
   <script src="scripts/app.js"></script>
 </body>
