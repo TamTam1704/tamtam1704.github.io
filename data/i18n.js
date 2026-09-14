@@ -45,10 +45,10 @@ window.PORTFOLIO_TRANSLATIONS = {
 
     'about.experienceLabel': 'MISSION HISTORY',
     'about.experience': 'Work Experience',
-    'about.positionLabel': 'POSITION',
-    'about.position': 'Video Editor',
+    'about.positionLabel': 'COMPANY',
+    'about.position': 'SonatGame',
     'about.workDate': '2020 – Present',
-    'about.company': 'Sonat Game',
+    'about.company': 'Video Editor',
     'about.workDesc': 'Video Team Leader, creating and managing video content for mobile games.',
 
     'about.skillsLabel': 'PLAYER STATS',
