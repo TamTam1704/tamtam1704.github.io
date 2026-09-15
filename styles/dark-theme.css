@@ -735,3 +735,91 @@ footer button { color: #72cee7; }
     border-width: 4px;
   }
 }
+
+/* Tools & Workflow: replaces the old progress-bar skills layout */
+.tool-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 26px;
+}
+
+.tool-group {
+  min-height: 120px;
+  padding: 16px;
+  border: 1px solid #304967;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #14243a, #0d1829);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .05), 0 4px 0 #050912;
+}
+
+.tool-group:last-child {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.tool-group > small {
+  display: block;
+  margin-bottom: 12px;
+  color: #68dfff;
+  font-size: 10px;
+  font-weight: 1000;
+  letter-spacing: 1.1px;
+}
+
+.tool-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tool-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid #3f6188;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #203958, #122139);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .08), 0 3px 0 #050912;
+  color: #dcecff;
+  font-size: 14px;
+  font-weight: 900;
+  transition: transform .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.tool-chip::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #65ddf8;
+  box-shadow: 0 0 8px rgba(101, 221, 248, .75);
+}
+
+.tool-chip:hover {
+  border-color: #65ddf8;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 680px) {
+  .tool-groups {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-group,
+  .tool-group:last-child {
+    grid-column: auto;
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .tool-chip {
+    min-height: 35px;
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+}
