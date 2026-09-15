@@ -739,7 +739,7 @@ footer button { color: #72cee7; }
 /* One-box app toolkit */
 .tool-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 12px;
   margin: 20px 0 26px;
   padding: 18px;
@@ -812,15 +812,14 @@ footer button { color: #72cee7; }
   font-size: 23px;
 }
 
+@media (max-width: 1000px) {
+  .tool-box {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 680px) {
   .tool-box {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 13px;
-  }
-
-  .app-card {
-    min-height: 100px;
-    font-size: 11px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
