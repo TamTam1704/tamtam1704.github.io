@@ -1,0 +1,67 @@
+/* Starter editorial examples, not claims about Tam's personal testing.
+ * Replace these in Content Studio > Lab. Leave published=false for a local draft.
+ * Source links are included in each note; no plugin binaries are redistributed.
+ */
+window.PORTFOLIO_LAB = [
+  {
+    id: 'make-motion-feel-right', title: 'Same keyframes. Better feeling.',
+    topic: 'After Effects', kind: 'Motion tip', visual: 'curves',
+    summary: 'A tiny timing change can give a simple move a completely different personality.',
+    version: 'After Effects / Graph Editor', sample: true, published: true,
+    body: 'Start with a simple Position move. The Value Graph shows the property value over time; the Speed Graph shows how fast it changes. They describe different aspects of the same animation.\n\nTry the motion playground above, then compare a linear move with a more deliberate acceleration and settling phase in your composition. The browser demo illustrates timing; it is not an exact simulation of the After Effects Graph Editor.',
+    steps: ['Animate a clear start and end position before adding more keyframes.', 'Open the Graph Editor and explicitly choose the graph type you need.', 'Adjust the handles and preview at the intended delivery frame rate. Keep the variation that supports the action, rather than easing every move the same way.'],
+    code: '', sourceTitle: 'Adobe - Animation basics & the Graph Editor',
+    sourceURL: 'https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/animation-basics/animation-basics.html', video: '', downloadURL: ''
+  },
+  {
+    id: 'loop-without-more-keyframes', title: 'Make a loop. Keep it editable.',
+    topic: 'After Effects', kind: 'Expression', visual: 'loop',
+    summary: 'Repeat a small animation without filling the timeline with copied keyframes.',
+    version: 'After Effects / loopOut()', sample: true, published: true,
+    body: 'On a supported numeric property such as Rotation, loopOut("cycle", 0) repeats the keyed segment after the last keyframe. The default 0 includes all keyframes. A value of 1 uses the last keyframe segment, not one isolated keyframe.\n\nFor a simple spinning element, keyframe Rotation from 0 to 360 degrees, use linear interpolation, and apply the expression. Check the loop boundary in a preview. Repeating values do not automatically guarantee seamless motion for every animation.',
+    steps: ['Select a numeric property with at least two keyframes.', 'Alt-click (Windows) or Option-click (macOS) its stopwatch to enable an expression.', 'Paste the expression, then preview beyond the final keyframe. Use pingpong instead of cycle when you need a back-and-forth move.'],
+    code: '// Apply to a keyframed property, such as Rotation.\nloopOut("cycle", 0);',
+    sourceTitle: 'Adobe - Expression language reference',
+    sourceURL: 'https://helpx.adobe.com/after-effects/desktop/work-with-expressions/expression-language-reference/expression-language-reference.html', video: '', downloadURL: ''
+  },
+  {
+    id: 'glow-with-intention', title: 'A glow with room to breathe.',
+    topic: 'After Effects', kind: 'Effect recipe', visual: 'glow',
+    summary: 'Give bright details a soft halo without washing out the whole image.',
+    version: 'After Effects / native Glow effect', sample: true, published: true,
+    body: 'Glow Threshold controls which bright areas contribute to the glow. Lower values affect more of the image. Glow Radius controls how far the glow spreads, while Glow Intensity controls its brightness.\n\nSuggested experiment: use a tighter glow for definition, then a second, broader and quieter glow for atmosphere. Treat this as a starting idea, not a universal preset. Judge the effect at final output size and compare against the untouched version.',
+    steps: ['Isolate a bright shape or highlight and apply the native Glow effect.', 'Set the threshold before increasing intensity. Protect the detail you want viewers to read.', 'Compare a small radius against a larger one. Pull back the effect when it obscures edges or text.'],
+    code: '', sourceTitle: 'Adobe - Stylize effects / Glow',
+    sourceURL: 'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/list-of-effects/stylize-effects.html', video: '', downloadURL: ''
+  },
+  {
+    id: 'cycles-noise-budget', title: 'Spend samples where they matter.',
+    topic: 'Blender', kind: 'Render workflow', visual: 'render',
+    summary: 'Treat noise, samples, and denoising as a balance, not a magic number.',
+    version: 'Reference: Blender 4.2 LTS / Cycles', sample: true, published: true,
+    body: 'With adaptive sampling, Cycles can stop sampling areas that have reached the selected noise threshold. A lower threshold asks for less noise and can increase render time. Denoising is a separate step; it is not a substitute for checking fine detail.\n\nSuggested workflow: keep a representative test frame, compare a few settings, and inspect small highlights, hair, and dark areas. For animation, also inspect a short frame sequence rather than only a clean-looking still. Control names may differ in other Blender versions.',
+    steps: ['Set a sensible maximum sample budget for your scene and hardware.', 'Compare noise thresholds on the same frame. Keep the setting that preserves the detail you need.', 'Compare denoising on and off. Look for lost detail before increasing render resolution or rendering the full sequence.'],
+    code: '', sourceTitle: 'Blender 4.2 Manual - Sampling',
+    sourceURL: 'https://docs.blender.org/manual/en/4.2/render/cycles/render_settings/sampling.html', video: '', downloadURL: ''
+  },
+  {
+    id: 'a-clean-project-handoff', title: 'Leave a timeline someone can open.',
+    topic: 'Workflow', kind: 'Checklist', visual: 'workflow',
+    summary: 'A good handoff is part of the edit, not an afterthought.',
+    version: 'After Effects / project handoff', sample: true, published: true,
+    body: 'After Effects can collect a project and its relevant source files into a folder. What is included depends on the collection options. A collected folder still needs a final check; do not assume every dependency or license travels with it.\n\nSuggested handoff: keep your working project intact, make a delivery copy, and include a short note with the app version, output specs, and any external dependencies. Share only assets you have permission to distribute.',
+    steps: ['Name the final composition clearly and save a delivery copy of the project.', 'Use Collect Files with the appropriate source-file options.', 'Open the collected copy and check for missing footage. Review fonts and plugins separately, then include a reference export for comparison.'],
+    code: '', sourceTitle: 'Adobe - Collect Files and automated rendering',
+    sourceURL: 'https://helpx.adobe.com/after-effects/desktop/render-and-export/automate-rendering/automated-rendering-network-rendering.html', video: '', downloadURL: ''
+  },
+  {
+    id: 'before-one-more-addon', title: 'Before one more add-on.',
+    topic: 'Plugins', kind: 'Add-on checklist', visual: 'plugins',
+    summary: 'A useful tool should simplify a workflow, not become its single point of failure.',
+    version: 'Reference: Blender 4.2 LTS / Extensions', sample: true, published: true,
+    body: 'Blender 4.2 supports installing extensions through its Extensions interface, the website, or a local package. Disabling an extension is different from removing it. Local disk installs do not receive repository updates in the same way.\n\nSuggested review before using a new tool: read its version requirements, license, and official documentation; test it on a copy of the project; and check whether a collaborator can open the result without it. Keep paid downloads and license files out of your public portfolio.',
+    steps: ['Link to the original author or official marketplace, rather than mirroring plugin packages.', 'Record the app version and add-on version when you publish your own tip.', 'Explain the specific problem it solves, include a small before/after example, and disclose affiliate links where applicable.'],
+    code: '', sourceTitle: 'Blender 4.2 Manual - Get Extensions',
+    sourceURL: 'https://docs.blender.org/manual/en/4.2/editors/preferences/extensions.html', video: '', downloadURL: ''
+  }
+];

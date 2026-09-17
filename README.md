@@ -1,37 +1,123 @@
-# Tam — Video Editor Portfolio V2
+# tamtam. / Portfolio V2 + The Lab
 
-Website tĩnh dành cho GitHub Pages. Không cần cài đặt hoặc build.
+A five-view, static portfolio: Home, Projects, Lab, About, Contact.
+Dark navy, lime/ice/lilac accents, dimensional game-inspired details.
+HTML + CSS + JavaScript. No build step, framework, external font files, tracking,
+autoplaying background video, or paid service. Public copy is English.
 
-Giao diện hiện tại dùng dark mobile-game theme trong `styles/dark-theme.css`.
-File này được tải cuối trong `index.html`, nên bạn có thể chỉnh màu, panel,
-button, project card và popup mà không cần sửa giao diện gốc.
+## Start and publish
 
-## Cấu trúc dễ chỉnh sửa
+Extract the entire ZIP first. Open index.html to see the site. Open studio.html
+for the editor. Read HUONG-DAN.html for Vietnamese instructions. The optional
+START-PREVIEW.bat launcher requires Python 3 and starts a local-only server.
+The website itself does not require Python.
 
-- `components/home.html`: nội dung trang Home.
-- `components/projects.html`: khung trang Projects và các nút lọc.
-- `components/about.html`: giới thiệu và kỹ năng.
-- `components/contact.html`: email, LinkedIn và showreel.
-- `data/projects.js`: thêm, xoá, sửa project và link video.
-- `data/i18n.js`: sửa toàn bộ câu chữ tiếng Anh và tiếng Việt.
-- `styles/game-ui.css`: màu sắc, panel, button và popup.
-- `styles/dark-theme.css`: lớp giao diện dark đang được sử dụng.
-- `styles/animations.css`: tốc độ và hiệu ứng chuyển động.
-- `styles/responsive.css`: giao diện điện thoại và tablet.
-- `scripts/app.js`: chuyển tab, lọc project và mở popup.
+This is a COMPLETE REPLACEMENT for the previous generated site, not a CSS patch.
+Back up the current repository. Upload the contents of this folder to the
+repository root, where index.html belongs. Do not upload the enclosing folder.
+No live website or GitHub repository was changed while creating this package.
 
-## Xem thử trên máy
+## Content Studio
 
-Website tải các component bằng JavaScript nên cần một local server. Trong VS Code, cài extension **Live Server**, sau đó bấm chuột phải vào `index.html` → **Open with Live Server**.
+The editor is local, not an authenticated CMS and not connected to GitHub.
+It does not write to your website source files. Browser storage is used when
+available; use Export update to keep a portable copy of your changes.
 
-## Ngôn ngữ
+Four panels:
+- Profile & content: name, brand, bio, hero, real showreel URL, contacts, history.
+- Projects: fixed category filters, multiple categories per project, artwork,
+  video, optional case-study sections, before/after image paths, ordering.
+- Lab / Tips & Tricks: add, remove, reorder, publish/unpublish notes; edit text,
+  steps, code, official references, tutorial/resource URLs and sample labels.
+- Tools & appearance: tool slots, optional logos, palette and motion defaults.
 
-Website mặc định dùng tiếng Anh và có nút `EN / VI`. Lựa chọn của người xem được ghi nhớ trên trình duyệt. Muốn sửa câu chữ, mở `data/i18n.js`.
+Preview draft opens index.html?draft=1. Normal public visits do not load drafts.
+Export update creates data/site.js, data/projects.js, data/lab.js and content.json.
+Replace the THREE JS data files in your website, add any new media files, then
+commit to GitHub. Media is NOT included in the content-update ZIP.
 
-## Đăng lên GitHub Pages
+IMPORTANT: content.json retains unpublished notes. Keep it offline; do NOT
+upload it. The exported data/lab.js includes only published notes. Putting
+unpublished content directly in a public data file does not make it private.
+Any data and media you upload to a public repository can be read by others.
+No private credentials belong in this website or its editor.
 
-Upload toàn bộ file và thư mục trong gói này vào thư mục gốc repository `tamtam1704.github.io`. Vào **Settings → Pages**, chọn branch `main` và folder `/(root)`.
+Older exported content.json files are normalized on import, including category
+migration. Back up the original JSON before importing. Preview it before export.
+Some browser file:// or privacy modes disable persistent storage. The editor
+reports this; export before closing. Local HTTP preview is preferable for editing.
 
-## Thêm project
+## Where to change things
 
-Mở `data/projects.js`, sao chép một object project, rồi sửa `id`, `title`, `subtitle`, `category`, `image`, `description`, `tags` và `videoUrl`. Ảnh đặt trong thư mục `assets`.
+| Change | File |
+|---|---|
+| Profile, brand, real reel, theme, Lab introduction | data/site.js |
+| Projects, categories, case studies, media | data/projects.js |
+| Tips, snippets, versions, resources, official references | data/lab.js |
+| Main colors and fonts (system fallbacks only) | styles/theme.css |
+| V2 responsive overrides and Lab layout | styles/upgrade.css |
+| Base layout | styles/main.css |
+| Motion preferences and transitions | styles/motion.css |
+| Individual views | components/*.js |
+| Routing, interaction, dialog, search | scripts/app.js |
+| Editor | studio.html, scripts/studio.js, styles/studio.css |
+| Static social and search metadata | index.html |
+
+Keep upgrade.css AFTER main.css and motion.css. Fixed filters are defined in
+scripts/utils.js: All Work, Motion, 3D, Story, Design, Ads, Social. A project's
+primary category determines its card label; its categories array controls
+additional memberships. The total collection count counts projects, not tags.
+
+## Authentic work first
+
+The three inherited projects remain clearly marked CONCEPT PREVIEW. They are
+not published client case studies. Their media fields are empty. Some artwork
+is low resolution; use your full-resolution approved images for final work.
+Do not turn off the preview label until the project is ready to present honestly.
+No client logos, view counts, performance results or experience claims were made up.
+
+Optional caseStudy fields: brief, role, process, outcome. Empty sections hide.
+Optional compare: before and after image paths, beforeLabel and afterLabel.
+Both paths enable a touch/keyboard image comparison slider. Use aligned images
+with matching aspect ratios. It compares images, NOT synchronized videos.
+
+Video: YouTube, Vimeo, or direct/local MP4/WebM/OGV. Embeds load on Play, not on
+page entry. Availability, permissions, codec compatibility and platform policies
+still require testing with your actual media. Set showreel in site.js to enable
+the Home reel action; there is no fake showreel in this package.
+
+## The Lab
+
+The playground compares linear timing with three CSS cubic-bezier curves. It
+is an illustrative browser experiment, not a reproduction of the AE Graph Editor.
+It runs only when pressed, respects reduced motion, and stops on route changes.
+
+Six starter notes include links to Adobe or Blender documentation. They are
+editorial examples, not claims that Tam personally tested these recipes. Replace
+or adapt them and state actual tested versions before publishing as your own.
+Pinned Blender 4.2 references are not claims about the newest Blender version.
+Share your own project files or original-author resource links, never unlicensed
+paid plugin binaries. For a strong note, add a short result demo, clear steps,
+application version, limitations and source attribution.
+
+Bookmarks and display preferences are per-browser and not account-synced.
+Search opens via the header button or Ctrl/Cmd + K. It searches loaded local
+configuration, not the web. Hash links work with browser Back/Forward; search
+engines/social previews may not index individual hash-route notes as separate
+articles. The package does not claim a multi-page SEO blog. A future content-heavy
+Lab could generate one static URL per article without changing the visual design.
+
+## Responsive and accessibility choices
+
+Fluid layout, constrained desktop widths, dedicated ultrawide sizing, touch
+navigation, 44px primary controls, safe-area padding, 16px form input text,
+keyboard navigation, native dialogs with explicit focus wrapping, no forced
+cursor replacement, no scroll hijacking and system reduced-motion support.
+Do not equate these choices with a formal accessibility certification.
+
+TEST-REPORT.md lists the exact checks and limitations. This package was rendered
+in Chromium at 17 viewports, not tested on physical iPhones/iPads or Safari.
+Native media playback, network performance, server caching and GitHub deployment
+must be checked in the final hosting environment. No FPS or Lighthouse score is
+claimed. The standalone HTML preview embeds artwork for portability; deploy the
+multi-file ZIP version so files can be cached independently.

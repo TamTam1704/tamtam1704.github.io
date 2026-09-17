@@ -1,67 +1,91 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-accent="lime">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070b14">
-  <meta name="description" content="Tam — Video Editor & Game Creative portfolio.">
-  <title>Tam Tam | Video Editor</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900;1000&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/game-ui.css">
-  <link rel="stylesheet" href="styles/animations.css">
-  <link rel="stylesheet" href="styles/responsive.css">
-  <link rel="stylesheet" href="styles/language.css">
-  <link rel="stylesheet" href="styles/dark-theme.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c1018">
+  <meta name="description" content="Game trailers, creative ads, and short stories. A portfolio by Tam, video editor and game creative based in Vietnam.">
+  <meta property="og:title" content="tamtam. - Video Editor & Game Creative">
+  <meta property="og:description" content="Small edits. Big feelings. Game trailers, creative ads, and short stories by Tam.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tamtam1704.github.io/assets/social-preview.jpg">
+  <meta property="og:url" content="https://tamtam1704.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>tamtam. - Video Editor & Game Creative</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/motion.css">
+  <link rel="stylesheet" href="styles/upgrade.css">
+  <script src="data/site.js" defer></script>
+  <script src="data/projects.js" defer></script>
+  <script src="data/lab.js" defer></script>
+  <script src="scripts/utils.js" defer></script>
+  <script src="scripts/schema.js" defer></script>
+  <script src="components/home.js" defer></script>
+  <script src="components/projects.js" defer></script>
+  <script src="components/about.js" defer></script>
+  <script src="components/contact.js" defer></script>
+  <script src="components/lab.js" defer></script>
+  <script src="components/details.js" defer></script>
+  <script src="scripts/app.js" defer></script>
 </head>
 <body>
-  <svg class="svg-library" aria-hidden="true">
-    <symbol id="icon-game" viewBox="0 0 24 24"><path d="M7 6h10c3 0 4 3 5 10 .4 3-2 4-4 2l-3-3H9l-3 3c-2 2-4.4 1-4-2C3 9 4 6 7 6Z" fill="currentColor"/><path d="M7 9v5m-2.5-2.5h5" fill="none" stroke="#4776e3" stroke-width="1.8"/><circle cx="16" cy="10" r="1" fill="#4776e3"/><circle cx="19" cy="13" r="1" fill="#4776e3"/></symbol>
-    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 7 8 5-8 5Z" fill="currentColor"/></symbol>
-    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m4 11 8-7 8 7v9h-6v-6h-4v6H4Z" fill="currentColor"/></symbol>
-    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c.6-5 3-7 8-7s7.4 2 8 7" fill="currentColor"/></symbol>
-    <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 7 8-7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-  </svg>
-
-  <div class="game-world">
-    <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
-    <header class="topbar wrap">
-      <button class="brand game-press" data-route="home" aria-label="Open home">
-        <span class="brand-icon"><svg><use href="#icon-game"/></svg></span>
-        <span>Tam</span><b>✦</b>
-      </button>
-      <nav class="game-tabs" aria-label="Portfolio pages">
-        <button class="game-tab is-active" data-route="home"><svg><use href="#icon-home"/></svg><span data-i18n="nav.home">Home</span></button>
-        <button class="game-tab" data-route="projects"><svg><use href="#icon-game"/></svg><span data-i18n="nav.projects">Projects</span></button>
-        <button class="game-tab" data-route="about"><svg><use href="#icon-user"/></svg><span data-i18n="nav.about">About</span></button>
-        <button class="game-tab" data-route="contact"><svg><use href="#icon-mail"/></svg><span data-i18n="nav.contact">Contact</span></button>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="site-header wrap">
+      <a class="brand" href="#home" aria-label="Tam - Home">
+        <span class="brand-emblem" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2 21 11 30 16 21 21 16 30 11 21 2 16 11 11Z" fill="currentColor"/><path d="m16 9 2.5 4.5L23 16l-4.5 2.5L16 23l-2.5-4.5L9 16l4.5-2.5Z" fill="#111720"/></svg></span>
+        <span class="brand-word">tamtam<span>.</span></span>
+        <span class="brand-caption">VIDEO EDITOR<br>&amp; GAME CREATIVE</span>
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a href="#home" data-nav="home" aria-current="page"><span class="nav-icon" data-icon="home"></span><span>Home</span></a>
+        <a href="#projects" data-nav="projects"><span class="nav-icon" data-icon="grid"></span><span>Projects</span></a>
+        <a href="#about" data-nav="about"><span class="nav-icon" data-icon="person"></span><span>About</span></a>
+        <a href="#contact" data-nav="contact"><span class="nav-icon" data-icon="mail"></span><span>Contact</span></a>
+        <a href="#lab" data-nav="lab" title="Lab - Tips & Tricks"><span class="nav-icon" data-icon="lab"></span><span>Lab<span class="nav-lab-dot" aria-hidden="true"></span></span></a>
       </nav>
-      <div class="top-actions">
-        <div class="language-switch" role="group" aria-label="Language">
-          <button class="is-active game-press" data-lang="en" aria-pressed="true">EN</button>
-          <button class="game-press" data-lang="vi" aria-pressed="false">VI</button>
-        </div>
-        <button class="game-button yellow compact game-press nav-work" data-route="projects"><span data-i18n="nav.viewWork">View work</span> <svg><use href="#icon-arrow"/></svg></button>
-      </div>
+      <div class="header-actions"><button type="button" class="icon-button command-trigger" data-action="search" aria-label="Search projects, tips and pages (Control or Command K)"><span data-icon="search"></span><kbd>K</kbd></button><a href="#contact" class="header-cta">Let's talk <span data-icon="arrow-up"></span></a></div>
     </header>
 
-    <main id="screen" class="screen" aria-live="polite"></main>
-    <footer class="wrap"><span>© <span id="year"></span> Tam · <span data-i18n="footer.line">Made with a playful mind.</span></span><button data-route="home" data-i18n="footer.back">Back home ↑</button></footer>
+    <main id="main" class="wrap" tabindex="-1">
+      <div id="boot-message" class="boot-message"><span class="status-dot"></span> Setting the scene...</div>
+      <section id="view-home" class="view" data-view="home" aria-label="Home" hidden></section>
+      <section id="view-projects" class="view" data-view="projects" aria-label="Projects" hidden></section>
+      <section id="view-lab" class="view" data-view="lab" aria-label="Lab - Tips and Tricks" hidden></section>
+      <section id="view-about" class="view" data-view="about" aria-label="About" hidden></section>
+      <section id="view-contact" class="view" data-view="contact" aria-label="Contact" hidden></section>
+      <noscript><div class="no-script"><h1>Hi, I'm Tam.</h1><p>Video editor &amp; game creative. This portfolio needs JavaScript to display its interactive pages.</p><a href="mailto:ntam170498@gmail.com">ntam170498@gmail.com</a></div></noscript>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p><span class="footer-spark" aria-hidden="true">&#10022;</span> <span id="copyright"></span> <span class="footer-separator">/</span> Made with a playful mind.</p>
+      <div class="footer-right">
+        <span id="page-index" class="page-index">01 <span>/ 05</span></span>
+        <button class="display-button" type="button" data-action="display" aria-haspopup="dialog"><span data-icon="sliders"></span><span>Display</span></button>
+        <a href="#home" class="back-home" aria-label="Back to home"><span data-icon="arrow-up"></span></a>
+      </div>
+    </footer>
   </div>
 
-  <dialog id="game-popup" class="game-popup">
-    <div class="popup-frame">
-      <div class="popup-titlebar"><span id="popup-label" data-i18n="popup.label">PROJECT DETAILS</span><button class="popup-close game-press" aria-label="Close popup">×</button></div>
-      <div id="popup-content" class="popup-content"></div>
-    </div>
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-title">
+    <div id="project-content"></div>
   </dialog>
 
-  <div id="loading" class="loading-screen" aria-label="Loading"><div class="loading-logo"><svg><use href="#icon-game"/></svg></div><div class="loading-bar"><i></i></div></div>
-  <script src="data/i18n.js"></script>
-  <script src="data/projects.js"></script>
-  <script src="scripts/app.js"></script>
+  <dialog id="tip-dialog" class="tip-dialog" aria-labelledby="tip-title"><div id="tip-content"></div></dialog>
+  <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title">
+    <div class="search-top"><span data-icon="search"></span><label class="sr-only" for="quick-search" id="search-title">Find a project, tip or page</label><input id="quick-search" type="search" placeholder="A project, a tip, a little inspiration..." autocomplete="off" maxlength="100"><button class="icon-button" type="button" data-action="close-search" aria-label="Close search"><span data-icon="close"></span></button></div>
+    <div id="search-results" class="search-results"></div><p class="search-foot">Search the portfolio <span>Tab to navigate &middot; Esc to close</span></p>
+  </dialog>
+  <dialog id="display-dialog" class="display-dialog" aria-labelledby="display-title">
+    <div class="dialog-heading"><div><p class="eyebrow">MAKE YOURSELF AT HOME</p><h2 id="display-title">Set the mood.</h2></div><button class="icon-button" type="button" data-action="close-display" aria-label="Close display settings"><span data-icon="close"></span></button></div>
+    <p class="muted">A little customization, just for this browser.</p>
+    <fieldset class="accent-picker"><legend>Accent color</legend><div class="swatch-row"><button type="button" class="swatch swatch-lime" data-accent-choice="lime" aria-pressed="true"><span></span>Lime</button><button type="button" class="swatch swatch-ice" data-accent-choice="ice" aria-pressed="false"><span></span>Ice</button><button type="button" class="swatch swatch-lilac" data-accent-choice="lilac" aria-pressed="false"><span></span>Lilac</button></div></fieldset>
+    <label class="motion-setting"><span><strong>Motion effects</strong><small id="motion-help">Subtle movement, never in the way.</small></span><input id="motion-toggle" type="checkbox" role="switch" aria-describedby="motion-help" checked><span class="switch-track" aria-hidden="true"></span></label>
+    <button type="button" class="text-button reset-display" data-action="reset-display">Reset to site defaults <span data-icon="refresh"></span></button>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

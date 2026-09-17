@@ -1,0 +1,51 @@
+/* Only transform/opacity are animated during movement. No canvas, no scroll hijack.
+ * No continuous background animation or permanently running JS render loop.
+ */
+@keyframes enter-view {
+  from { opacity: 0; transform: translate3d(0, 13px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes enter-dialog {
+  from { opacity: 0; transform: translate3d(0, 12px, 0) scale(.985); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+.view.is-entering .reveal { animation: enter-view 540ms var(--ease-out) both; }
+.view.is-entering .hero-copy .reveal:nth-child(2) { animation-delay: 35ms; }
+.view.is-entering .hero-copy .reveal:nth-child(3) { animation-delay: 60ms; }
+.view.is-entering .hero-copy .reveal:nth-child(4) { animation-delay: 80ms; }
+.view.is-entering .hero-copy .reveal:nth-child(n+5) { animation-delay: 100ms; }
+.view.is-entering .hero-art { animation-delay: 75ms; }
+.view.is-entering .home-shelf { animation-delay: 120ms; }
+.view.is-entering .project-toolbar, .view.is-entering .about-bio { animation-delay: 35ms; }
+.view.is-entering .project-grid, .view.is-entering .contact-card { animation-delay: 65ms; }
+.view.is-entering .history-list { animation-delay: 90ms; }
+.project-grid.is-filtering { animation: enter-view 320ms var(--ease-out) both; }
+dialog[open] { animation: enter-dialog 300ms var(--ease-out) both; }
+.button, .icon-button, .header-cta, .filter, .tool-tile, .mini-project, .project-open, .round-link { transition: transform 230ms var(--ease-out), background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
+.primary-nav a, .social-link, .display-button, .text-link { transition: color 180ms ease, background-color 180ms ease; }
+.project-cover, .mini-cover img { transition: transform 650ms var(--ease-out), filter 350ms ease; }
+.creator-card { transition: transform 180ms var(--ease-out); }
+.toast { transition: transform 240ms var(--ease-out), opacity 240ms ease; }
+.switch-track::before { transition: transform 180ms var(--ease-out); }
+.button:active, .icon-button:active { transform: translateY(2px) scale(.99); }
+@media (hover: hover) and (pointer: fine) {
+  .primary-nav a:hover { color: var(--text); background: #ffffff09; }
+  .button-primary:hover { transform: translateY(-3px); }
+  .button-quiet:hover, .social-link:hover, .text-link:hover, .display-button:hover { color: var(--accent); }
+  .header-cta:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .icon-button:hover, .round-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .mini-project:hover { border-color: #c6d2e638; background: #202b3b88; transform: translateY(-3px); }
+  .mini-project:hover .mini-cover img { transform: scale(1.06); }
+  .mini-project:hover .mini-arrow { color: var(--accent); }
+  .project-card:hover .project-cover { transform: scale(1.035); filter: saturate(1) brightness(.95); }
+  .project-card:hover .project-open { background: var(--accent); color: var(--on-accent); transform: rotate(5deg); border-color: var(--accent); }
+  .filter:not(.is-active):hover { color: var(--text); border-color: var(--line-strong); }
+  .tool-tile:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+}
+/* JS also honors the operating system preference before enabling pointer tilt. */
+:root[data-motion='off'] *, :root[data-motion='off'] *::before, :root[data-motion='off'] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+:root[data-motion='off'] .creator-card { transform: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .creator-card { transform: none !important; }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" data-accent="lime">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Content Studio - tamtam.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/studio.css">
+  <script src="data/site.js" defer></script>
+  <script src="data/projects.js" defer></script>
+  <script src="data/lab.js" defer></script>
+  <script src="scripts/utils.js" defer></script>
+  <script src="scripts/schema.js" defer></script>
+  <script src="scripts/studio.js" defer></script>
+</head>
+<body class="studio-body">
+  <main class="studio-wrap">
+    <header class="studio-header"><a class="brand" href="index.html"><span class="brand-word">tamtam<span>.</span></span><span class="studio-brand-caption">CONTENT STUDIO</span></a><a class="text-link" href="index.html">Back to portfolio <span data-icon="arrow-up"></span></a></header>
+    <div class="studio-heading"><div><p class="eyebrow">YOUR CONTENT. YOUR RULES.</p><h1>Make it <em>yours.</em></h1><p>Edit locally, preview, then export your changes.</p></div><div class="studio-actions"><button type="button" class="button studio-preview" data-studio="preview"><span data-icon="grid"></span> Preview draft</button><button type="button" class="button button-primary" data-studio="export"><span data-icon="download"></span> Export update</button></div></div>
+    <div class="studio-notice"><span data-icon="person"></span><p><strong>This is a local editor, not a connected admin panel.</strong> Changes do not update GitHub automatically. Export the ZIP, then replace the three files in your website's <code>data</code> folder. Anyone who opens this page can only change their own local draft.</p></div>
+    <div class="studio-layout"><aside class="studio-sidebar"><nav aria-label="Editor sections"><button type="button" class="studio-tab is-active" data-tab="content" aria-pressed="true"><span data-icon="person"></span> Profile &amp; content</button><button type="button" class="studio-tab" data-tab="projects" aria-pressed="false"><span data-icon="film"></span> Projects <span id="studio-count"></span></button><button type="button" class="studio-tab" data-tab="lab" aria-pressed="false"><span data-icon="lab"></span> Lab / Tips &amp; Tricks</button><button type="button" class="studio-tab" data-tab="tools" aria-pressed="false"><span data-icon="grid"></span> Tools &amp; appearance</button></nav><p id="save-state" class="save-state" role="status">Draft saved in this browser.</p><div class="studio-sidebar-actions"><label class="import-button" for="import-json">Import content.json <input id="import-json" type="file" accept=".json,application/json"></label><button type="button" class="text-button" data-studio="reset">Reset local draft</button></div><p class="studio-tip">Image files stay in <code>assets/</code>. Enter their paths here. Use your own images and videos that you have permission to publish.</p></aside>
+    <div class="studio-main"><section id="editor-content" class="editor-section" aria-label="Profile and content"></section><section id="editor-projects" class="editor-section" aria-label="Projects" hidden></section><section id="editor-lab" class="editor-section" aria-label="Tips and Tricks" hidden></section><section id="editor-tools" class="editor-section" aria-label="Tools and appearance" hidden></section></div></div>
+    <footer class="studio-footer">No account. No subscription. No upload until you publish your files.</footer>
+  </main>
+  <dialog id="reset-dialog" class="display-dialog" aria-labelledby="reset-title"><h2 id="reset-title">Reset this local draft?</h2><p class="muted" style="margin:18px 0;font-size:13px">Your original website files will not change. Export your draft first to keep a backup.</p><div class="studio-actions"><button type="button" class="button" data-studio="cancel-reset">Keep editing</button><button type="button" class="button button-primary" data-studio="confirm-reset">Reset draft</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
