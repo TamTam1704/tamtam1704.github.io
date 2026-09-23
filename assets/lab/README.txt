@@ -1,0 +1,1 @@
+These original schematic GIFs illustrate the sample notes. They are not screen recordings, After Effects outputs, or measured Blender comparisons. Replace each in Content Studio > Lab. Still posters are used while paused and when reduced motion is enabled.

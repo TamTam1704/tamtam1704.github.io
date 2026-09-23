@@ -1,0 +1,870 @@
+/* Media and EyePilot additions. Keep this after upgrade.css. */
+.eye-playground  {
+    margin: 36px 0 44px;
+    padding: clamp(20px, 2.8vw, 38px);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: linear-gradient(120deg, #19232e, #101822 68%);
+}
+
+.eye-introduction  {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 28px;
+}
+
+.eye-introduction h2  {
+    font-size: clamp(25px, 2.55vw, 39px);
+    line-height: 1.22;
+    letter-spacing: -1.2px;
+    margin-top: 16px;
+}
+
+.eye-introduction h2 em  {
+    color: var(--accent);
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+.eye-introduction > p  {
+    max-width: 365px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.eye-workspace  {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 26px;
+}
+
+.eye-stage  {
+    position: relative;
+    min-height: 365px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #ffffff0d;
+    border-radius: 20px;
+    background-color: #0c121b;
+    background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px);
+    background-size: 26px 26px;
+}
+
+.eye-stage-header, .eye-stage-footer  {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font: 9px/1.6 ui-monospace, monospace;
+    letter-spacing: 1px;
+    color: #7f91a6;
+    z-index: 2;
+}
+
+.eye-stage-header  {
+    top: 20px;
+}
+
+.eye-stage-footer  {
+    bottom: 20px;
+}
+
+.eye-stage-footer code  {
+    font: inherit;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.eye-live  {
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.eye-live i  {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.eye-character  {
+    position: relative;
+    width: 310px;
+    max-width: 87%;
+}
+
+.eye-face  {
+    --rig-skin: #aca2e7;
+    position: relative;
+    height: 232px;
+    border-radius: 74px 74px 91px 91px;
+    background: radial-gradient(ellipse at 50% 10%, #d1c9ff 0, #ada2e8 55%, #8479ba 100%);
+    box-shadow: inset 0 2px 2px #ffffff50, inset 0 -10px 14px #4b446637, 0 22px 40px #00000044;
+    transform: rotate(-3deg);
+}
+
+.eye-pair  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding-top: 47px;
+}
+
+.eye-socket  {
+    --eye-closed: 0;
+    --eye-expression: 0;
+    position: relative;
+}
+
+.eye-white  {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 103px;
+    height: 115px;
+    border-radius: 49%;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 40% 36%, #ffffff 25%, #eff0f4 70%, #c5c1d4 100%);
+    box-shadow: 0 4px 1px #5d538047, inset 0 2px 8px #4f456639;
+}
+
+.eye-pupil  {
+    display: block;
+    position: relative;
+    width: 45px;
+    height: 53px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 50%, #090d13 36%, #273329 37%, #4b674a 55%, #0a1014 72%);
+    box-shadow: 0 2px 4px #00000020;
+}
+
+.eye-highlight  {
+    position: absolute;
+    display: block;
+    width: 11px;
+    height: 13px;
+    left: 10px;
+    top: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 14px 23px 0 -3px #ffffffa0;
+}
+
+.eye-lid  {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: calc(var(--eye-closed) * 51%);
+    background: var(--rig-skin);
+    z-index: 1;
+    transition: height 90ms ease;
+}
+
+.lid-top  {
+    top: 0;
+    border-radius: 0 0 35% 35%;
+    box-shadow: 0 1px #766aa066;
+}
+
+.lid-bottom  {
+    bottom: 0;
+    border-radius: 35% 35% 0 0;
+}
+
+.eye-brow  {
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 67px;
+    height: 11px;
+    border-radius: 10px 10px 6px 6px;
+    background: #403859;
+    transform: translateY(calc(var(--eye-expression) * -7px)) rotate(calc(var(--eye-expression) * -15deg));
+}
+
+.eye-right .eye-brow  {
+    transform: translateY(calc(var(--eye-expression) * -7px)) rotate(calc(var(--eye-expression) * 15deg));
+}
+
+.eye-mouth  {
+    position: absolute;
+    bottom: 32px;
+    left: calc(50% - 21px);
+    width: 42px;
+    height: 18px;
+    border: 3px solid #504365;
+    border-top: 0;
+    border-radius: 0 0 24px 24px;
+    transform: scaleY(calc(0.7 + var(--eye-expression, 0) * 0.25));
+}
+
+.eye-freckle  {
+    position: absolute;
+    top: 161px;
+    width: 25px;
+    height: 11px;
+    border-radius: 50%;
+    background: #e397bd70;
+}
+
+.freckle-left  {
+    left: 30px;
+}
+
+.freckle-right  {
+    right: 30px;
+}
+
+.eye-floor-shadow  {
+    position: absolute;
+    bottom: -24px;
+    left: 24%;
+    width: 52%;
+    height: 13px;
+    background: #0000005e;
+    border-radius: 50%;
+    filter: blur(7px);
+}
+
+.eye-controls  {
+    display: grid;
+    grid-template-columns: minmax(155px, 0.96fr) minmax(160px, 1fr);
+    gap: 22px;
+    min-width: 0;
+    align-items: start;
+}
+
+.eye-look-control, .eye-expression-controls  {
+    min-width: 0;
+}
+
+.eye-controller-heading  {
+    font: 9px/1.5 ui-monospace, monospace;
+    letter-spacing: 1.2px;
+    color: #9eacbb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 12px;
+}
+
+.eye-controller-heading .icon  {
+    width: 14px;
+    height: 14px;
+}
+
+.eye-pad  {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 210px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid #a6b5834d;
+    background: radial-gradient(ellipse, #24322766, #101820 68%);
+    color: var(--accent);
+    touch-action: none;
+    cursor: grab;
+    user-select: none;
+}
+
+.eye-pad:active  {
+    cursor: grabbing;
+}
+
+.eye-pad-axis  {
+    position: absolute;
+    background: #a9bd9430;
+    pointer-events: none;
+}
+
+.axis-x  {
+    height: 1px;
+    left: 12px;
+    right: 12px;
+    top: 50%;
+}
+
+.axis-y  {
+    width: 1px;
+    top: 12px;
+    bottom: 12px;
+    left: 50%;
+}
+
+.eye-pad-ring  {
+    position: absolute;
+    inset: 17px;
+    border: 1px dashed #91a08330;
+    border-radius: 50%;
+}
+
+.eye-stick  {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    color: #18210b;
+    background: var(--accent);
+    box-shadow: 0 0 24px #d5f66b20, inset 0 1px #ffffff80;
+    pointer-events: none;
+}
+
+.eye-stick .icon  {
+    width: 17px;
+    height: 17px;
+}
+
+.eye-control-help  {
+    font-size: 10px;
+    text-align: center;
+    line-height: 1.65;
+    margin: 10px 0 14px;
+    color: #8797a9;
+}
+
+.eye-slider  {
+    display: block;
+    min-width: 0;
+    margin-bottom: 15px;
+}
+
+.eye-slider > span  {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #b1bdcb;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 7px;
+}
+
+.eye-slider output  {
+    color: var(--accent);
+    font: 10px/1.6 ui-monospace, monospace;
+}
+
+.eye-slider input  {
+    display: block;
+    width: 100%;
+    height: 18px;
+    accent-color: var(--accent);
+    margin: 0;
+}
+
+.eye-look-sliders  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.eye-look-sliders .eye-slider  {
+    margin: 0;
+}
+
+.eye-expression-controls  {
+    padding-top: 4px;
+}
+
+.eye-expression-controls .eye-slider  {
+    margin-bottom: 21px;
+}
+
+.eye-options  {
+    margin: 19px 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+}
+
+.eye-options label  {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 27px;
+    font-size: 11px;
+    color: #aab8c8;
+}
+
+.eye-options input  {
+    accent-color: var(--accent);
+    width: 15px;
+    height: 15px;
+}
+
+.eye-action-buttons  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.eye-action-buttons .button  {
+    min-height: 38px;
+    padding: 8px 11px;
+    font-size: 10px;
+    border-radius: 9px;
+}
+
+.eye-action-buttons .button-primary  {
+    width: 100%;
+}
+
+.eye-reset  {
+    margin-top: 15px;
+    font-size: 11px;
+    min-height: 32px;
+}
+
+.eye-reset .icon  {
+    width: 13px;
+    height: 13px;
+}
+
+.eye-footnote  {
+    font: 10px/1.8 ui-monospace, monospace;
+    color: #8190a1;
+    margin-top: 20px;
+}
+
+[data-motion="off"] .eye-lid  {
+    transition: none;
+}
+
+/* A real image gallery: full image first, then captions and keyboard-friendly thumbnails. */
+.gallery-stage  {
+    height: auto;
+    min-height: 240px;
+    max-height: 66vh;
+    background: #090e16;
+    aspect-ratio: 16/10;
+}
+
+.gallery-stage > img  {
+    position: static;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gallery-arrow  {
+    position: absolute;
+    top: calc(50% - 23px);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #101720e8;
+    border: 1px solid #ffffff28;
+    color: #f1f4f5;
+    z-index: 2;
+}
+
+.gallery-prev  {
+    left: 14px;
+}
+
+.gallery-next  {
+    right: 14px;
+}
+
+.gallery-prev .icon  {
+    transform: rotate(180deg);
+}
+
+.gallery-caption-row  {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    padding: 17px 26px 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.gallery-caption-row > span  {
+    flex-shrink: 0;
+    color: var(--accent);
+    font: 11px/1.6 ui-monospace, monospace;
+}
+
+.gallery-thumbnails  {
+    display: flex;
+    gap: 10px;
+    padding: 0 26px 22px;
+    overflow: auto;
+}
+
+.gallery-thumbnails button  {
+    flex-shrink: 0;
+    width: 96px;
+    height: 64px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #151d28;
+    border: 2px solid transparent;
+    opacity: .6;
+}
+
+.gallery-thumbnails button[aria-pressed="true"]  {
+    opacity: 1;
+    border-color: var(--accent);
+}
+
+.gallery-thumbnails img  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-source-row  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 22px;
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+.media-source-row p  {
+    max-width: 560px;
+    font-size: 10px;
+    line-height: 1.8;
+    color: var(--subtle);
+}
+
+.media-source-row a  {
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.media-stage.has-video  {
+    min-height: 210px;
+}
+
+.media-stage .media-missing  {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.media-stage .media-play  {
+    z-index: 3;
+}
+
+/* The note keeps the GIF alongside the instructions, not behind a second click. */
+.tip-dialog  {
+    width: min(1140px, calc(100% - 56px));
+    max-width: 1140px;
+}
+
+.reader-grid  {
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+    gap: 34px;
+}
+
+.reader-aside  {
+    min-width: 0;
+}
+
+.tip-demo  {
+    margin: 0 0 30px;
+}
+
+.tip-demo-heading  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    font: 9px/1.4 ui-monospace, monospace;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+.tip-demo-heading button  {
+    font-size: 10px;
+    min-height: 32px;
+    letter-spacing: 0;
+}
+
+.tip-demo-stage  {
+    min-width: 0;
+    aspect-ratio: 8/5;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #0c131e;
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+}
+
+.tip-demo-stage img  {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tip-demo-placeholder  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px;
+    text-align: center;
+    color: var(--subtle);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.tip-demo-placeholder .icon  {
+    width: 32px;
+    height: 32px;
+    color: var(--accent);
+}
+
+.tip-demo figcaption  {
+    margin-top: 11px;
+    font-size: 10px;
+    line-height: 1.8;
+    color: var(--subtle);
+}
+
+.media-missing  {
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.copy-lines  {
+    white-space: pre-line;
+}
+
+@media (min-width: 1450px)  {
+    .eye-stage  {
+        min-height: 390px;
+    }
+    .eye-controls  {
+        gap: 30px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1100px)  {
+    .eye-workspace  {
+        grid-template-columns: 1fr;
+    }
+    .eye-stage  {
+        min-height: 330px;
+    }
+    .eye-controls  {
+        grid-template-columns: 1fr 1.3fr;
+        gap: 32px;
+        max-width: 640px;
+        width: 100%;
+        margin: auto;
+    }
+    .eye-look-control  {
+        max-width: 230px;
+    }
+    .eye-expression-controls  {
+        padding-top: 10px;
+    }
+    .eye-action-buttons .button-primary  {
+        width: auto;
+    }
+    .eye-introduction  {
+        align-items: start;
+    }
+    .eye-introduction h2 em  {
+        display: block;
+    }
+    .eye-introduction > p  {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 760px)  {
+    .eye-playground  {
+        border-radius: 21px;
+        padding: 20px;
+    }
+    .eye-introduction  {
+        display: block;
+    }
+    .eye-introduction > p  {
+        max-width: none;
+        margin-top: 16px;
+        font-size: 12px;
+    }
+    .eye-introduction h2 em  {
+        display: inline;
+    }
+    .eye-stage  {
+        min-height: 310px;
+    }
+    .eye-stage-header, .eye-stage-footer  {
+        left: 15px;
+        right: 15px;
+        font-size: 8px;
+        letter-spacing: .5px;
+    }
+    .eye-controls  {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+    .eye-pad  {
+        max-width: 185px;
+    }
+    .eye-control-help  {
+        font-size: 9px;
+    }
+    .eye-look-sliders  {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .eye-character  {
+        transform: scale(.91);
+    }
+    .eye-options  {
+        gap: 6px;
+        margin-top: 10px;
+    }
+    .eye-options label  {
+        font-size: 10px;
+    }
+    .eye-expression-controls .eye-slider  {
+        margin-bottom: 14px;
+    }
+    .eye-action-buttons .button-primary  {
+        width: 100%;
+    }
+    .eye-action-buttons .button  {
+        min-height: 40px;
+    }
+    .eye-action-buttons .button-quiet  {
+        flex: 1;
+        font-size: 9px;
+        padding: 7px;
+    }
+    .eye-footnote  {
+        font-size: 9px;
+    }
+    .eye-reset  {
+        font-size: 10px;
+    }
+    .tip-dialog  {
+        width: calc(100% - 16px);
+    }
+    .reader-grid  {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+    .reader-aside  {
+        border-left: 0;
+        border-top: 0;
+        padding: 0;
+        grid-row: 1;
+    }
+    .tip-demo  {
+        margin-bottom: 22px;
+    }
+    .reader-aside > .eyebrow, .reader-aside > .reference-link, .reader-aside > .starter-note  {
+        margin-top: 15px;
+    }
+    .tip-demo figcaption  {
+        font-size: 11px;
+    }
+    .media-source-row  {
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+        padding: 14px 20px;
+    }
+    .media-source-row p  {
+        font-size: 11px;
+    }
+    .gallery-caption-row  {
+        padding: 14px 18px;
+    }
+    .gallery-thumbnails  {
+        padding: 0 18px 15px;
+    }
+    .gallery-arrow  {
+        width: 42px;
+        height: 42px;
+    }
+    .gallery-prev  {
+        left: 8px;
+    }
+    .gallery-next  {
+        right: 8px;
+    }
+}
+
+@media (max-width: 380px)  {
+    .eye-playground  {
+        padding: 14px;
+    }
+    .eye-controls  {
+        gap: 13px;
+    }
+    .eye-controller-heading  {
+        font-size: 8px;
+    }
+    .eye-stage  {
+        min-height: 280px;
+    }
+    .eye-character  {
+        transform: scale(.81);
+        max-width: 96%;
+    }
+    .eye-stage-footer  {
+        font-size: 7px;
+    }
+    .eye-action-buttons .button-quiet  {
+        font-size: 8px;
+    }
+}
+
+@media print  {
+    .eye-playground, .gallery-thumbnails, .gallery-arrow, .tip-demo-heading button  {
+        display: none !important;
+    }
+}
+
+.eye-action-buttons .button-quiet {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--line);
+}
+
+.eye-action-buttons .button-quiet:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
+}

@@ -1,123 +1,84 @@
-# tamtam. / Portfolio V2 + The Lab
+# TamTam Portfolio V2.2
 
-A five-view, static portfolio: Home, Projects, Lab, About, Contact.
-Dark navy, lime/ice/lilac accents, dimensional game-inspired details.
-HTML + CSS + JavaScript. No build step, framework, external font files, tracking,
-autoplaying background video, or paid service. Public copy is English.
+Bản web tĩnh có Content Studio, project video/ảnh và Eye Lab. Không cần npm, React, build hay cài plugin After Effects.
 
-## Start and publish
+## 1. Mở và chạy web
 
-Extract the entire ZIP first. Open index.html to see the site. Open studio.html
-for the editor. Read HUONG-DAN.html for Vietnamese instructions. The optional
-START-PREVIEW.bat launcher requires Python 3 and starts a local-only server.
-The website itself does not require Python.
+Giải nén trọn bộ thư mục. Trên Windows, chạy **START-PREVIEW.bat** nếu máy đã có Python 3. Mở **http://127.0.0.1:8765/** để xem web và **http://127.0.0.1:8765/studio.html** để sửa nội dung. Giữ cửa sổ lệnh mở khi sử dụng; Ctrl+C để dừng server.
 
-This is a COMPLETE REPLACEMENT for the previous generated site, not a CSS patch.
-Back up the current repository. Upload the contents of this folder to the
-repository root, where index.html belongs. Do not upload the enclosing folder.
-No live website or GitHub repository was changed while creating this package.
+Cũng có thể chạy `python preview_server.py` hoặc `python3 preview_server.py`. Server chỉ chạy trên máy của bạn, không tự đăng web. Cổng 8765 được giữ cố định để bản nháp trong trình duyệt không bị đổi nguồn lưu sau mỗi lần mở.
 
-## Content Studio
+Nhấp đúp `index.html` vẫn xem được giao diện. Nên dùng server HTTP để thử video YouTube và bản nháp: chế độ `file://` có thể không gửi thông tin referrer mà trình phát cần. Không cần Python khi web đã được đăng trên hosting tĩnh.
 
-The editor is local, not an authenticated CMS and not connected to GitHub.
-It does not write to your website source files. Browser storage is used when
-available; use Export update to keep a portable copy of your changes.
+## 2. Sửa nội dung bằng Content Studio
 
-Four panels:
-- Profile & content: name, brand, bio, hero, real showreel URL, contacts, history.
-- Projects: fixed category filters, multiple categories per project, artwork,
-  video, optional case-study sections, before/after image paths, ordering.
-- Lab / Tips & Tricks: add, remove, reorder, publish/unpublish notes; edit text,
-  steps, code, official references, tutorial/resource URLs and sample labels.
-- Tools & appearance: tool slots, optional logos, palette and motion defaults.
+Mở `studio.html` trên cùng địa chỉ với web. Có 5 khu vực:
 
-Preview draft opens index.html?draft=1. Normal public visits do not load drafts.
-Export update creates data/site.js, data/projects.js, data/lab.js and content.json.
-Replace the THREE JS data files in your website, add any new media files, then
-commit to GitHub. Media is NOT included in the content-update ZIP.
+| Tab | Nội dung chỉnh sửa |
+| --- | --- |
+| Content | Tên, giới thiệu, ảnh chính, avatar, email, mạng xã hội, About, kinh nghiệm, học vấn, các lựa chọn Contact, SEO. |
+| Projects | Thêm/xóa/sắp xếp project; dán link video; thêm ảnh và chú thích; chọn project nổi bật. |
+| Lab | Bài tip, nội dung, các bước, code, link tham khảo, GIF, ảnh tĩnh và ẩn/hiện Eye Lab. |
+| Tools & appearance | Tên/logo công cụ và màu nhấn mặc định. |
+| Text & labels | Hơn 200 dòng chữ giao diện: menu, heading, nút, thông báo, nhãn Eye Lab. Có ô tìm kiếm. |
 
-IMPORTANT: content.json retains unpublished notes. Keep it offline; do NOT
-upload it. The exported data/lab.js includes only published notes. Putting
-unpublished content directly in a public data file does not make it private.
-Any data and media you upload to a public repository can be read by others.
-No private credentials belong in this website or its editor.
+Nội dung được coi là văn bản thuần, không phải HTML. Trong các nhãn có `{count}`, `{title}`, `{name}`..., giữ nguyên phần trong ngoặc nhọn để web điền giá trị tự động.
 
-Older exported content.json files are normalized on import, including category
-migration. Back up the original JSON before importing. Preview it before export.
-Some browser file:// or privacy modes disable persistent storage. The editor
-reports this; export before closing. Local HTTP preview is preferable for editing.
+**Preview draft** mở bản xem thử có nội dung đang sửa. Nếu trình duyệt chặn popup, cho phép popup cho trang này. Trang web thường không tự nhận bản nháp: chỉ bản Preview draft nhận thay đổi ngay.
 
-## Where to change things
+Bản nháp lưu trong trình duyệt, không tự ghi đè file hay tự đăng lên hosting. Đây không phải CMS có tài khoản/máy chủ. Đổi trình duyệt, địa chỉ, cổng hoặc xóa dữ liệu web sẽ dùng kho nháp khác. Nên xuất bản sao lưu thường xuyên.
 
-| Change | File |
-|---|---|
-| Profile, brand, real reel, theme, Lab introduction | data/site.js |
-| Projects, categories, case studies, media | data/projects.js |
-| Tips, snippets, versions, resources, official references | data/lab.js |
-| Main colors and fonts (system fallbacks only) | styles/theme.css |
-| V2 responsive overrides and Lab layout | styles/upgrade.css |
-| Base layout | styles/main.css |
-| Motion preferences and transitions | styles/motion.css |
-| Individual views | components/*.js |
-| Routing, interaction, dialog, search | scripts/app.js |
-| Editor | studio.html, scripts/studio.js, styles/studio.css |
-| Static social and search metadata | index.html |
+## 3. Project: video và Design
 
-Keep upgrade.css AFTER main.css and motion.css. Fixed filters are defined in
-scripts/utils.js: All Work, Motion, 3D, Story, Design, Ads, Social. A project's
-primary category determines its card label; its categories array controls
-additional memberships. The total collection count counts projects, not tags.
+Có sẵn **3 project cho mỗi nhóm Motion, 3D, Story, Ads, Social**, tổng 15 project video. Tất cả dùng link mẫu bạn gửi: `https://youtu.be/0Nb1wj0NeP8`.
 
-## Authentic work first
+Trong Projects, mở project → thay **YouTube / video URL** → thay tên, mô tả và cover. Chỉ dán link video thông thường, không dán mã iframe. Thumbnail là ảnh riêng do bạn chọn; web không tự lấy thumbnail từ YouTube. Link ngắn, watch, embed và Shorts được nhận diện; chọn tỷ lệ 16/9, 9/16 hoặc 1/1 theo nội dung.
 
-The three inherited projects remain clearly marked CONCEPT PREVIEW. They are
-not published client case studies. Their media fields are empty. Some artwork
-is low resolution; use your full-resolution approved images for final work.
-Do not turn off the preview label until the project is ready to present honestly.
-No client logos, view counts, performance results or experience claims were made up.
+**Design có 3 project mẫu**, mỗi project có 2 ảnh. Đây là gallery ảnh, không phải video. Dùng **Add image**, nhập đường dẫn/link ảnh hoặc **Choose file**. Có chú thích, alt text, đổi thứ tự và xóa ảnh. Người xem dùng thumbnail, nút trước/sau hoặc phím mũi tên để chuyển ảnh. Gallery trống sẽ dùng cover làm ảnh thay thế.
 
-Optional caseStudy fields: brief, role, process, outcome. Empty sections hide.
-Optional compare: before and after image paths, beforeLabel and afterLabel.
-Both paths enable a touch/keyboard image comparison slider. Use aligned images
-with matching aspect ratios. It compares images, NOT synchronized videos.
+Các ảnh cover và mô tả đang là nội dung mẫu, không phải trích xuất hay mô tả đã xác minh của video YouTube. Bỏ chọn **Sample project** sau khi thay bằng công việc thật của bạn.
 
-Video: YouTube, Vimeo, or direct/local MP4/WebM/OGV. Embeds load on Play, not on
-page entry. Availability, permissions, codec compatibility and platform policies
-still require testing with your actual media. Set showreel in site.js to enable
-the Home reel action; there is no fake showreel in this package.
+Video chỉ tạo player khi bấm Play. Link **Open video on the source site** là lối mở ngoài nếu video hạn chế nhúng. Quyền xem, quyền nhúng, tài khoản và kết nối mạng do YouTube quyết định; bộ source không vượt qua các hạn chế này.
 
-## The Lab
+## 4. Lab: tip có GIF và Eye Lab
 
-The playground compares linear timing with three CSS cubic-bezier curves. It
-is an illustrative browser experiment, not a reproduction of the AE Graph Editor.
-It runs only when pressed, respects reduced motion, and stops on route changes.
+Popup tip hiển thị **bài viết bên trái, GIF bên phải** trên màn hình rộng. Màn hình nhỏ sắp thành một cột. Có 6 GIF minh họa mẫu và ảnh tĩnh đi kèm; đây không phải video quay thao tác thật trong After Effects/Blender.
 
-Six starter notes include links to Adobe or Blender documentation. They are
-editorial examples, not claims that Tam personally tested these recipes. Replace
-or adapt them and state actual tested versions before publishing as your own.
-Pinned Blender 4.2 references are not claims about the newest Blender version.
-Share your own project files or original-author resource links, never unlicensed
-paid plugin binaries. For a strong note, add a short result demo, clear steps,
-application version, limitations and source attribution.
+Trong tab Lab, mở note → thay **GIF demo**, **Still poster for the GIF**, alt text và caption. Dán link trực tiếp tới file GIF, không phải trang bài viết chứa GIF. Ví dụ: `assets/lab/my-tip.gif`. GIF có nút dừng/chạy; khi dừng, web dùng poster. Không có poster thì hiện thẻ tạm dừng. Chế độ giảm chuyển động bắt đầu với GIF đã dừng.
 
-Bookmarks and display preferences are per-browser and not account-synced.
-Search opens via the header button or Ctrl/Cmd + K. It searches loaded local
-configuration, not the web. Hash links work with browser Back/Forward; search
-engines/social previews may not index individual hash-route notes as separate
-articles. The package does not claim a multi-page SEO blog. A future content-heavy
-Lab could generate one static URL per article without changing the visual design.
+Phần đầu Lab là **Eye Lab**: kéo joystick để đổi hướng nhìn, chỉnh Look X/Y, Blink left/right và Expression. Có Blink both, Wink L/R, Reset, Follow pointer và Auto blink. Bàn phím: mũi tên, Shift + mũi tên để di chuyển nhanh, Home để về giữa. Auto blink tắt khi đổi trang hoặc mở tip. Đây là tương tác trong trình duyệt, không kết nối với After Effects.
 
-## Responsive and accessibility choices
+Bỏ chọn **Show the interactive eye controller** trong tab Lab để ẩn toàn bộ phần này. Các nhãn Eye Lab nằm trong **Text & labels → eye**. Bài chưa chọn Published không xuất vào dữ liệu công khai.
 
-Fluid layout, constrained desktop widths, dedicated ultrawide sizing, touch
-navigation, 44px primary controls, safe-area padding, 16px form input text,
-keyboard navigation, native dialogs with explicit focus wrapping, no forced
-cursor replacement, no scroll hijacking and system reduced-motion support.
-Do not equate these choices with a formal accessibility certification.
+## 5. Ảnh upload và xuất bản
 
-TEST-REPORT.md lists the exact checks and limitations. This package was rendered
-in Chromium at 17 viewports, not tested on physical iPhones/iPads or Safari.
-Native media playback, network performance, server caching and GitHub deployment
-must be checked in the final hosting environment. No FPS or Lighthouse score is
-claimed. The standalone HTML preview embeds artwork for portability; deploy the
-multi-file ZIP version so files can be cached independently.
+**Choose file** nhận PNG, JPG, WebP, GIF; tối đa 8 MB/file và khoảng 24 MB upload trong một bản nháp. Trình duyệt có thể hết dung lượng localStorage sớm hơn. Khi thấy **Storage unavailable. Export before closing this page.**, phải xuất ngay trước khi đóng tab. Ảnh chỉ chọn trong Studio sẽ được đóng gói cùng bản cập nhật; file chỉ nhập bằng đường dẫn thì bạn cần tự copy đúng vị trí.
+
+Sau khi sửa, bấm **Export update**. Giải nén `tamtam-content-update.zip`, sao lưu web cũ rồi chép đè 3 file trong `data/` và chép thêm các file trong `assets/uploads/` vào web. Tải lại trang để xem bản chính thức. Gói update không chứa lại toàn bộ source website.
+
+**Giữ `content.json` ngoại tuyến, không upload lên hosting.** Đây là bản sao lưu đầy đủ, có thể chứa note chưa công khai và upload riêng. Dùng **Import content.json** để tiếp tục sửa trên máy/trình duyệt khác. Bản 2.2 dùng kho nháp riêng, không tự lấy nháp cũ của 2.1; có thể import file JSON cũ để chuyển nội dung.
+
+Để đăng lần đầu, upload nội dung bên trong thư mục V2.2 (gồm index.html, data, components, scripts, styles, assets) tới hosting tĩnh. Không đổi tên các thư mục phụ. Script preview Python và file .bat không cần trên hosting.
+
+Các thẻ SEO/Open Graph trong `index.html` là bản tĩnh cho bot/link preview. Sau khi đổi tên, mô tả, domain hoặc ảnh share trong Studio, đồng bộ cả thẻ meta trong index.html. Dữ liệu hiển thị cho người dùng cập nhật qua data/site.js.
+
+## 6. Sửa trực tiếp trong code
+
+| File/thư mục | Vai trò |
+| --- | --- |
+| data/site.js | Thông tin cá nhân, About, Contact, theme; `copy` chứa nhãn giao diện. |
+| data/projects.js | Project; `video` chứa link; `mediaType: "gallery"` và `images` cho Design. |
+| data/lab.js | Tip; `demoGif`, `demoPoster`, `demoAlt`, `demoCaption` cho minh họa. |
+| components/ | HTML template theo trang, đã xuống dòng và thụt lề. |
+| scripts/app.js | Điều hướng, dialog, search, player, gallery và bản nháp. |
+| scripts/eye-rig.js | Joystick, chuyển động mắt, chớp mắt và sự kiện. |
+| scripts/studio.js | Form chỉnh sửa, upload, import và export ZIP. |
+| styles/media-lab.css | Giao diện Eye Lab, gallery và popup GIF. |
+| assets/lab/ | GIF và poster mẫu. |
+| assets/uploads/ | File ảnh/GIF xuất từ Studio. |
+
+Source không nén/minify. JavaScript, CSS và HTML đã tách dòng/thụt lề; file data dùng cấu trúc rõ ràng. `.editorconfig` giúp editor giữ quy cách. Không có dependency JavaScript bên ngoài.
+
+## 7. Phạm vi kiểm tra
+
+Xem `TEST-REPORT.md`. Source đã chạy qua kiểm tra cú pháp và kiểm thử giao diện trong Chromium ngoại tuyến, gồm desktop/mobile giả lập, Eye Lab, GIF, gallery, form và xuất/nhập ZIP. Chưa xác nhận video YouTube phát qua mạng thật, Safari/iOS hay hosting của bạn. Trước khi thay bản đang public, hãy sao lưu bản cũ và thử trên máy của bạn.

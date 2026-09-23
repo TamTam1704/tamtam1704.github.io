@@ -1,91 +1,321 @@
-<!doctype html>
-<html lang="en" data-accent="lime">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0c1018">
-  <meta name="description" content="Game trailers, creative ads, and short stories. A portfolio by Tam, video editor and game creative based in Vietnam.">
-  <meta property="og:title" content="tamtam. - Video Editor & Game Creative">
-  <meta property="og:description" content="Small edits. Big feelings. Game trailers, creative ads, and short stories by Tam.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://tamtam1704.github.io/assets/social-preview.jpg">
-  <meta property="og:url" content="https://tamtam1704.github.io/">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>tamtam. - Video Editor & Game Creative</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles/theme.css">
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/motion.css">
-  <link rel="stylesheet" href="styles/upgrade.css">
-  <script src="data/site.js" defer></script>
-  <script src="data/projects.js" defer></script>
-  <script src="data/lab.js" defer></script>
-  <script src="scripts/utils.js" defer></script>
-  <script src="scripts/schema.js" defer></script>
-  <script src="components/home.js" defer></script>
-  <script src="components/projects.js" defer></script>
-  <script src="components/about.js" defer></script>
-  <script src="components/contact.js" defer></script>
-  <script src="components/lab.js" defer></script>
-  <script src="components/details.js" defer></script>
-  <script src="scripts/app.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ambient" aria-hidden="true"></div>
-  <div class="site-shell">
-    <header class="site-header wrap">
-      <a class="brand" href="#home" aria-label="Tam - Home">
-        <span class="brand-emblem" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2 21 11 30 16 21 21 16 30 11 21 2 16 11 11Z" fill="currentColor"/><path d="m16 9 2.5 4.5L23 16l-4.5 2.5L16 23l-2.5-4.5L9 16l4.5-2.5Z" fill="#111720"/></svg></span>
-        <span class="brand-word">tamtam<span>.</span></span>
-        <span class="brand-caption">VIDEO EDITOR<br>&amp; GAME CREATIVE</span>
-      </a>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <a href="#home" data-nav="home" aria-current="page"><span class="nav-icon" data-icon="home"></span><span>Home</span></a>
-        <a href="#projects" data-nav="projects"><span class="nav-icon" data-icon="grid"></span><span>Projects</span></a>
-        <a href="#about" data-nav="about"><span class="nav-icon" data-icon="person"></span><span>About</span></a>
-        <a href="#contact" data-nav="contact"><span class="nav-icon" data-icon="mail"></span><span>Contact</span></a>
-        <a href="#lab" data-nav="lab" title="Lab - Tips & Tricks"><span class="nav-icon" data-icon="lab"></span><span>Lab<span class="nav-lab-dot" aria-hidden="true"></span></span></a>
-      </nav>
-      <div class="header-actions"><button type="button" class="icon-button command-trigger" data-action="search" aria-label="Search projects, tips and pages (Control or Command K)"><span data-icon="search"></span><kbd>K</kbd></button><a href="#contact" class="header-cta">Let's talk <span data-icon="arrow-up"></span></a></div>
-    </header>
-
-    <main id="main" class="wrap" tabindex="-1">
-      <div id="boot-message" class="boot-message"><span class="status-dot"></span> Setting the scene...</div>
-      <section id="view-home" class="view" data-view="home" aria-label="Home" hidden></section>
-      <section id="view-projects" class="view" data-view="projects" aria-label="Projects" hidden></section>
-      <section id="view-lab" class="view" data-view="lab" aria-label="Lab - Tips and Tricks" hidden></section>
-      <section id="view-about" class="view" data-view="about" aria-label="About" hidden></section>
-      <section id="view-contact" class="view" data-view="contact" aria-label="Contact" hidden></section>
-      <noscript><div class="no-script"><h1>Hi, I'm Tam.</h1><p>Video editor &amp; game creative. This portfolio needs JavaScript to display its interactive pages.</p><a href="mailto:ntam170498@gmail.com">ntam170498@gmail.com</a></div></noscript>
-    </main>
-
-    <footer class="site-footer wrap">
-      <p><span class="footer-spark" aria-hidden="true">&#10022;</span> <span id="copyright"></span> <span class="footer-separator">/</span> Made with a playful mind.</p>
-      <div class="footer-right">
-        <span id="page-index" class="page-index">01 <span>/ 05</span></span>
-        <button class="display-button" type="button" data-action="display" aria-haspopup="dialog"><span data-icon="sliders"></span><span>Display</span></button>
-        <a href="#home" class="back-home" aria-label="Back to home"><span data-icon="arrow-up"></span></a>
-      </div>
-    </footer>
-  </div>
-
-  <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-title">
-    <div id="project-content"></div>
-  </dialog>
-
-  <dialog id="tip-dialog" class="tip-dialog" aria-labelledby="tip-title"><div id="tip-content"></div></dialog>
-  <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title">
-    <div class="search-top"><span data-icon="search"></span><label class="sr-only" for="quick-search" id="search-title">Find a project, tip or page</label><input id="quick-search" type="search" placeholder="A project, a tip, a little inspiration..." autocomplete="off" maxlength="100"><button class="icon-button" type="button" data-action="close-search" aria-label="Close search"><span data-icon="close"></span></button></div>
-    <div id="search-results" class="search-results"></div><p class="search-foot">Search the portfolio <span>Tab to navigate &middot; Esc to close</span></p>
-  </dialog>
-  <dialog id="display-dialog" class="display-dialog" aria-labelledby="display-title">
-    <div class="dialog-heading"><div><p class="eyebrow">MAKE YOURSELF AT HOME</p><h2 id="display-title">Set the mood.</h2></div><button class="icon-button" type="button" data-action="close-display" aria-label="Close display settings"><span data-icon="close"></span></button></div>
-    <p class="muted">A little customization, just for this browser.</p>
-    <fieldset class="accent-picker"><legend>Accent color</legend><div class="swatch-row"><button type="button" class="swatch swatch-lime" data-accent-choice="lime" aria-pressed="true"><span></span>Lime</button><button type="button" class="swatch swatch-ice" data-accent-choice="ice" aria-pressed="false"><span></span>Ice</button><button type="button" class="swatch swatch-lilac" data-accent-choice="lilac" aria-pressed="false"><span></span>Lilac</button></div></fieldset>
-    <label class="motion-setting"><span><strong>Motion effects</strong><small id="motion-help">Subtle movement, never in the way.</small></span><input id="motion-toggle" type="checkbox" role="switch" aria-describedby="motion-help" checked><span class="switch-track" aria-hidden="true"></span></label>
-    <button type="button" class="text-button reset-display" data-action="reset-display">Reset to site defaults <span data-icon="refresh"></span></button>
-  </dialog>
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-</body>
+<!DOCTYPE html>
+<html data-accent="lime" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="strict-origin-when-cross-origin" name="referrer"/>
+        <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+        <meta content="#0c1018" name="theme-color"/>
+        <meta content="Game trailers, creative ads, and short stories. A portfolio by Tam, video editor and game creative based in Vietnam." name="description"/>
+        <meta content="tamtam. - Video Editor & Game Creative" property="og:title"/>
+        <meta content="Small edits. Big feelings. Game trailers, creative ads, and short stories by Tam." property="og:description"/>
+        <meta content="website" property="og:type"/>
+        <meta content="https://tamtam1704.github.io/assets/social-preview.jpg" property="og:image"/>
+        <meta content="https://tamtam1704.github.io/" property="og:url"/>
+        <meta content="summary_large_image" name="twitter:card"/>
+        <title>
+            tamtam. - Video Editor & Game Creative
+        </title>
+        <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+        <link href="styles/theme.css" rel="stylesheet"/>
+        <link href="styles/main.css" rel="stylesheet"/>
+        <link href="styles/motion.css" rel="stylesheet"/>
+        <link href="styles/upgrade.css" rel="stylesheet"/>
+        <link href="styles/media-lab.css" rel="stylesheet"/>
+        <script defer="" src="data/site.js">
+        </script>
+        <script defer="" src="data/projects.js">
+        </script>
+        <script defer="" src="data/lab.js">
+        </script>
+        <script defer="" src="scripts/utils.js">
+        </script>
+        <script defer="" src="scripts/schema.js">
+        </script>
+        <script defer="" src="components/home.js">
+        </script>
+        <script defer="" src="components/projects.js">
+        </script>
+        <script defer="" src="components/about.js">
+        </script>
+        <script defer="" src="components/contact.js">
+        </script>
+        <script defer="" src="components/eye-lab.js">
+        </script>
+        <script defer="" src="components/lab.js">
+        </script>
+        <script defer="" src="components/details.js">
+        </script>
+        <script defer="" src="scripts/eye-rig.js">
+        </script>
+        <script defer="" src="scripts/app.js">
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" data-copy="navigation.skip" href="#main">
+            Skip to content
+        </a>
+        <div aria-hidden="true" class="ambient">
+        </div>
+        <div class="site-shell">
+            <header class="site-header wrap">
+                <a aria-label="Tam - Home" class="brand" href="#home">
+                    <span aria-hidden="true" class="brand-emblem">
+                        <svg viewbox="0 0 32 32">
+                            <path d="M16 2 21 11 30 16 21 21 16 30 11 21 2 16 11 11Z" fill="currentColor">
+                            </path>
+                            <path d="m16 9 2.5 4.5L23 16l-4.5 2.5L16 23l-2.5-4.5L9 16l4.5-2.5Z" fill="#111720">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="brand-word">
+                        tamtam
+                        <span>
+                            .
+                        </span>
+                    </span>
+                    <span class="brand-caption copy-lines" data-copy="navigation.caption">
+                        VIDEO EDITOR
+                        <br/>
+                        & GAME CREATIVE
+                    </span>
+                </a>
+                <nav aria-label="Main navigation" class="primary-nav" data-copy-label="navigation.mainLabel">
+                    <a aria-current="page" data-nav="home" href="#home">
+                        <span class="nav-icon" data-icon="home">
+                        </span>
+                        <span data-copy="navigation.home">
+                            Home
+                        </span>
+                    </a>
+                    <a data-nav="projects" href="#projects">
+                        <span class="nav-icon" data-icon="grid">
+                        </span>
+                        <span data-copy="navigation.projects">
+                            Projects
+                        </span>
+                    </a>
+                    <a data-nav="about" href="#about">
+                        <span class="nav-icon" data-icon="person">
+                        </span>
+                        <span data-copy="navigation.about">
+                            About
+                        </span>
+                    </a>
+                    <a data-nav="contact" href="#contact">
+                        <span class="nav-icon" data-icon="mail">
+                        </span>
+                        <span data-copy="navigation.contact">
+                            Contact
+                        </span>
+                    </a>
+                    <a data-nav="lab" href="#lab" title="Lab - Tips & Tricks">
+                        <span class="nav-icon" data-icon="lab">
+                        </span>
+                        <span>
+                            <span data-copy="navigation.lab">
+                                Lab
+                            </span>
+                            <span aria-hidden="true" class="nav-lab-dot">
+                            </span>
+                        </span>
+                    </a>
+                </nav>
+                <div class="header-actions">
+                    <button aria-label="Search projects, tips and pages (Control or Command K)" class="icon-button command-trigger" data-action="search" data-copy-label="search.button" type="button">
+                        <span data-icon="search">
+                        </span>
+                        <kbd>
+                            K
+                        </kbd>
+                    </button>
+                    <a class="header-cta" href="#contact">
+                        <span data-copy="navigation.talk">
+                            Let's talk
+                        </span>
+                        <span data-icon="arrow-up">
+                        </span>
+                    </a>
+                </div>
+            </header>
+            <main class="wrap" id="main" tabindex="-1">
+                <div class="boot-message" id="boot-message">
+                    <span class="status-dot">
+                    </span>
+                    Setting the scene...
+                </div>
+                <section aria-label="Home" class="view" data-view="home" hidden="" id="view-home">
+                </section>
+                <section aria-label="Projects" class="view" data-view="projects" hidden="" id="view-projects">
+                </section>
+                <section aria-label="Lab - Tips and Tricks" class="view" data-view="lab" hidden="" id="view-lab">
+                </section>
+                <section aria-label="About" class="view" data-view="about" hidden="" id="view-about">
+                </section>
+                <section aria-label="Contact" class="view" data-view="contact" hidden="" id="view-contact">
+                </section>
+                <noscript>
+                    <div class="no-script">
+                        <h1>
+                            Hi, I'm Tam.
+                        </h1>
+                        <p>
+                            Video editor & game creative. This portfolio needs JavaScript to display its interactive pages.
+                        </p>
+                        <a href="mailto:ntam170498@gmail.com">
+                            ntam170498@gmail.com
+                        </a>
+                    </div>
+                </noscript>
+            </main>
+            <footer class="site-footer wrap">
+                <p>
+                    <span aria-hidden="true" class="footer-spark">
+                        ✦
+                    </span>
+                    <span id="copyright">
+                    </span>
+                    <span class="footer-separator">
+                        /
+                    </span>
+                    <span data-copy="navigation.footer">
+                        Made with a playful mind.
+                    </span>
+                </p>
+                <div class="footer-right">
+                    <span class="page-index" id="page-index">
+                        01
+                        <span>
+                            / 05
+                        </span>
+                    </span>
+                    <button aria-haspopup="dialog" class="display-button" data-action="display" type="button">
+                        <span data-icon="sliders">
+                        </span>
+                        <span data-copy="navigation.display">
+                            Display
+                        </span>
+                    </button>
+                    <a aria-label="Back to home" class="back-home" data-copy-label="navigation.backHome" href="#home">
+                        <span data-icon="arrow-up">
+                        </span>
+                    </a>
+                </div>
+            </footer>
+        </div>
+        <dialog aria-labelledby="project-title" class="project-dialog" id="project-dialog">
+            <div id="project-content">
+            </div>
+        </dialog>
+        <dialog aria-labelledby="tip-title" class="tip-dialog" id="tip-dialog">
+            <div id="tip-content">
+            </div>
+        </dialog>
+        <dialog aria-labelledby="search-title" class="search-dialog" id="search-dialog">
+            <div class="search-top">
+                <span data-icon="search">
+                </span>
+                <label class="sr-only" for="quick-search" id="search-title">
+                    <span data-copy="search.label">
+                        Find a project, tip or page
+                    </span>
+                </label>
+                <input autocomplete="off" data-copy-placeholder="search.placeholder" id="quick-search" maxlength="100" placeholder="A project, a tip, a little inspiration..." type="search"/>
+                <button aria-label="Close search" class="icon-button" data-action="close-search" data-copy-label="search.close" type="button">
+                    <span data-icon="close">
+                    </span>
+                </button>
+            </div>
+            <div class="search-results" id="search-results">
+            </div>
+            <p class="search-foot">
+                <span data-copy="search.footer">
+                    Search the portfolio
+                </span>
+                <span>
+                    <span data-copy="search.keys">
+                        Tab to navigate · Esc to close
+                    </span>
+                </span>
+            </p>
+        </dialog>
+        <dialog aria-labelledby="display-title" class="display-dialog" id="display-dialog">
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">
+                        <span data-copy="display.eyebrow">
+                            MAKE YOURSELF AT HOME
+                        </span>
+                    </p>
+                    <h2 id="display-title">
+                        <span data-copy="display.title">
+                            Set the mood.
+                        </span>
+                    </h2>
+                </div>
+                <button aria-label="Close display settings" class="icon-button" data-action="close-display" data-copy-label="display.close" type="button">
+                    <span data-icon="close">
+                    </span>
+                </button>
+            </div>
+            <p class="muted">
+                <span data-copy="display.intro">
+                    A little customization, just for this browser.
+                </span>
+            </p>
+            <fieldset class="accent-picker">
+                <legend>
+                    <span data-copy="display.accent">
+                        Accent color
+                    </span>
+                </legend>
+                <div class="swatch-row">
+                    <button aria-pressed="true" class="swatch swatch-lime" data-accent-choice="lime" type="button">
+                        <span>
+                        </span>
+                        <span data-copy="display.lime">
+                            Lime
+                        </span>
+                    </button>
+                    <button aria-pressed="false" class="swatch swatch-ice" data-accent-choice="ice" type="button">
+                        <span>
+                        </span>
+                        <span data-copy="display.ice">
+                            Ice
+                        </span>
+                    </button>
+                    <button aria-pressed="false" class="swatch swatch-lilac" data-accent-choice="lilac" type="button">
+                        <span>
+                        </span>
+                        <span data-copy="display.lilac">
+                            Lilac
+                        </span>
+                    </button>
+                </div>
+            </fieldset>
+            <label class="motion-setting">
+                <span>
+                    <strong>
+                        <span data-copy="display.motion">
+                            Motion effects
+                        </span>
+                    </strong>
+                    <small id="motion-help">
+                        Subtle movement, never in the way.
+                    </small>
+                </span>
+                <input aria-describedby="motion-help" checked="" id="motion-toggle" role="switch" type="checkbox"/>
+                <span aria-hidden="true" class="switch-track">
+                </span>
+            </label>
+            <button class="text-button reset-display" data-action="reset-display" type="button">
+                <span data-copy="display.reset">
+                    Reset to site defaults
+                </span>
+                <span data-icon="refresh">
+                </span>
+            </button>
+        </dialog>
+        <div aria-atomic="true" aria-live="polite" class="toast" id="toast" role="status">
+        </div>
+    </body>
 </html>

@@ -1,37 +1,39 @@
 /* DESIGN TOKENS. Site-wide adjustments belong here, not in multiple files. */
-:root {
-  color-scheme: dark;
-  --bg: #0c1018;
-  --surface: #131a25;
-  --surface-raised: #192230;
-  --surface-soft: #101721;
-  --text: #f4f5f2;
-  --muted: #a0acbc;
-  --subtle: #8290a3;
-  --line: #ffffff12;
-  --line-strong: #ffffff22;
-  --accent: #d5f66b;
-  --accent-soft: #d5f66b12;
-  --accent-deep: #8eaf37;
-  --on-accent: #161d0b;
-  --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
-  --font-display: 'Arial', 'Helvetica Neue', sans-serif;
-  --font-editorial: Georgia, 'Times New Roman', serif;
-  --font-mono: 'Consolas', 'Liberation Mono', monospace;
-  --radius: 24px;
-  --ease-out: cubic-bezier(.22, 1, .36, 1);
-  --ease-standard: cubic-bezier(.2, .7, .3, 1);
-  --page-width: 1240px;
+:root  {
+    color-scheme: dark;
+    --bg: #0c1018;
+    --surface: #131a25;
+    --surface-raised: #192230;
+    --surface-soft: #101721;
+    --text: #f4f5f2;
+    --muted: #a0acbc;
+    --subtle: #8290a3;
+    --line: #ffffff12;
+    --line-strong: #ffffff22;
+    --accent: #d5f66b;
+    --accent-soft: #d5f66b12;
+    --accent-deep: #8eaf37;
+    --on-accent: #161d0b;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+    --font-display: 'Arial', 'Helvetica Neue', sans-serif;
+    --font-editorial: Georgia, 'Times New Roman', serif;
+    --font-mono: 'Consolas', 'Liberation Mono', monospace;
+    --radius: 24px;
+    --ease-out: cubic-bezier(.22, 1, .36, 1);
+    --ease-standard: cubic-bezier(.2, .7, .3, 1);
+    --page-width: 1240px;
 }
-:root[data-accent='ice'] {
-  --accent: #84e6f5;
-  --accent-soft: #84e6f512;
-  --accent-deep: #389eae;
-  --on-accent: #082329;
+
+:root[data-accent='ice']  {
+    --accent: #84e6f5;
+    --accent-soft: #84e6f512;
+    --accent-deep: #389eae;
+    --on-accent: #082329;
 }
-:root[data-accent='lilac'] {
-  --accent: #c3a8ff;
-  --accent-soft: #c3a8ff12;
-  --accent-deep: #8060ba;
-  --on-accent: #20132f;
+
+:root[data-accent='lilac']  {
+    --accent: #c3a8ff;
+    --accent-soft: #c3a8ff12;
+    --accent-deep: #8060ba;
+    --on-accent: #20132f;
 }

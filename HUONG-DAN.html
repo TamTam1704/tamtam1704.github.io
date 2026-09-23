@@ -1,1 +1,462 @@
-<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tamtam. / V2 Guide</title><style>body{margin:0;background:#0c1018;color:#edf1f6;font:16px/1.9 system-ui,sans-serif}main{max-width:880px;padding:48px 24px;margin:auto}h1{font-size:46px;line-height:1.12;letter-spacing:-2px}h2{font-size:24px;color:#d5f66b;line-height:1.4;margin-top:0}section{padding:28px;border:1px solid #293342;border-radius:18px;margin:22px 0;background:#131b26}p{margin:0;color:#c0cad8}code{color:#d5f66b;overflow-wrap:anywhere}a{color:#d5f66b;margin-right:22px}strong{color:#fff}header>p{margin:20px 0}.label{font:12px monospace;letter-spacing:2px;color:#d5f66b}@media(max-width:500px){h1{font-size:36px}section{padding:22px}}</style><main><header><span class="label">TAMTAM. / PORTFOLIO V2</span><h1>Hướng dẫn sử dụng</h1><p><a href="index.html">Portfolio</a><a href="studio.html">Content Studio</a></p></header><section><h2>01 / Xem trước</h2><p>Giải nén toàn bộ thư mục, sau đó mở <code>index.html</code> bằng Chrome hoặc Edge. Không mở trực tiếp từ bên trong file ZIP. <code>studio.html</code> là trang chỉnh nội dung. <code>START-PREVIEW.bat</code> là cách chạy local server tùy chọn trên Windows, cần Python 3. Website không cần Python để hoạt động.</p></section><section><h2>02 / Thay bản web cũ</h2><p>Sao lưu repo hiện tại trước. Bản V2 là bộ thay thế hoàn chỉnh, không phải CSS dán thêm. Upload <strong>nội dung bên trong</strong> thư mục <code>tamtam-portfolio-v2</code> vào gốc repo; <code>index.html</code> phải nằm ngay tại gốc. Giữ cấu hình GitHub Pages đang hoạt động. Việc tải ZIP không tự thay đổi website đang chạy.</p></section><section><h2>03 / Chỉnh nội dung trong Studio</h2><p>Mở <code>studio.html</code>. Profile &amp; content chỉnh thông tin, logo chữ, ảnh, showreel và liên hệ. Projects chỉnh dự án. Lab / Tips &amp; Tricks chỉnh bài viết. Tools &amp; appearance chỉnh công cụ và màu sắc.<br><br><strong>Chỉnh → Preview draft → Export update → thay 3 file trong data → upload GitHub.</strong><br><br>Ba file là <code>site.js</code>, <code>projects.js</code>, <code>lab.js</code>. Ảnh/video mới cần tự đặt vào đúng đường dẫn, không nằm trong ZIP cập nhật nội dung. Studio không kết nối repo và không tự đồng bộ.</p></section><section><h2>04 / Projects: phân loại và hậu trường</h2><p>Bộ lọc: <strong>All Work, Motion, 3D, Story, Design, Ads, Social</strong>. Primary category là nhãn chính; Additional filters cho phép một dự án thuộc nhiều nhóm.<br><br>Thêm The brief, Your role, The approach, The outcome để hiển thị câu chuyện hậu trường. Mục để trống sẽ ẩn. Thêm cả <strong>Before image</strong> và <strong>After image</strong> để bật thanh kéo so sánh ảnh. Nên dùng hai ảnh cùng tỷ lệ và cùng khung hình. Đây không phải so sánh hai video đồng bộ.<br><br>Ba dự án mẫu vẫn mang nhãn Concept Preview; chưa có video thật. Chỉ bỏ nhãn sau khi đã thêm tác phẩm thật được phép công bố.</p></section><section><h2>05 / Lab: viết bài và lưu bản nháp</h2><p>Chọn Add note. Đặt tiêu đề, topic, mô tả, phiên bản, nội dung, các bước, code và nguồn. Mỗi bước viết trên một dòng. Published cho phép xuất bản; Starter / sample note hiển thị cảnh báo nội dung mẫu.<br><br>Sáu bài có sẵn là bài mẫu có dẫn nguồn Adobe/Blender, không phải tuyên bố bạn đã tự thử nghiệm. Hãy thay bằng demo và phiên bản bạn thực sự đã kiểm tra. Chỉ chia sẻ tài nguyên có quyền phân phối, hoặc link tác giả gốc.<br><br><strong>Không upload content.json.</strong> File này giữ cả bài chưa xuất bản để Import lại vào Studio. File <code>data/lab.js</code> xuất từ Studio chỉ chứa bài Published. Dữ liệu đã đưa lên repo công khai không còn là bí mật.</p></section><section><h2>06 / Kiểm tra trước khi công bố</h2><p>Chạy thử trên điện thoại/iPad thật, Safari và trình duyệt bạn dùng. Kiểm tra video thật, link tải tài nguyên, Gmail và ảnh thumbnail. Bản này đã kiểm tra bố cục trong Chromium giả lập 17 viewport; chưa phải kiểm thử trên máy thật.<br><br>Bookmark và Display chỉ lưu trong trình duyệt khi storage được phép, không đồng bộ tài khoản. Nếu Studio báo không lưu được, hãy Export trước khi đóng. Xem <code>TEST-REPORT.md</code> để biết phạm vi kiểm tra.</p></section></main></html>
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>
+            Hướng dẫn - TamTam Portfolio V2.2
+        </title>
+        <style>
+            :root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0c1119; color: #e9edf3; font: 16px/1.85 system-ui, sans-serif; }
+main { max-width: 970px; margin: 0 auto; padding: 55px 24px 100px; }
+.eyebrow { color: #d5f66b; font-size: 12px; letter-spacing: 3px; }
+h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; letter-spacing: -1.7px; }
+h2 { margin-top: 52px; padding-top: 20px; border-top: 1px solid #293340; font-size: 25px; line-height: 1.4; }
+p { color: #b5c0d0; }
+strong, th { color: #f4f6fa; }
+code { padding: 3px 7px; border: 1px solid #293340; border-radius: 5px; color: #d5f66b; font-size: 0.88em; overflow-wrap: anywhere; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { border-bottom: 1px solid #293340; padding: 12px 16px; text-align: left; vertical-align: top; }
+th { background: #17212d; }
+td:first-child { min-width: 190px; color: #d5f66b; }
+footer { margin-top: 44px; font-size: 13px; color: #9faebf; }
+        </style>
+    </head>
+    <body>
+        <main>
+            <p class="eyebrow">
+                WEBSITE / CONTENT GUIDE
+            </p>
+            <h1>
+                TamTam Portfolio V2.2
+            </h1>
+            <p>
+                Bản web tĩnh có Content Studio, project video/ảnh và Eye Lab. Không cần npm, React, build hay cài plugin After Effects.
+            </p>
+            <h2>
+                1. Mở và chạy web
+            </h2>
+            <p>
+                Giải nén trọn bộ thư mục. Trên Windows, chạy
+                <strong>
+                    START-PREVIEW.bat
+                </strong>
+                nếu máy đã có Python 3. Mở
+                <strong>
+                    http://127.0.0.1:8765/
+                </strong>
+                để xem web và
+                <strong>
+                    http://127.0.0.1:8765/studio.html
+                </strong>
+                để sửa nội dung. Giữ cửa sổ lệnh mở khi sử dụng; Ctrl+C để dừng server.
+            </p>
+            <p>
+                Cũng có thể chạy
+                <code>
+                    python preview_server.py
+                </code>
+                hoặc
+                <code>
+                    python3 preview_server.py
+                </code>
+                . Server chỉ chạy trên máy của bạn, không tự đăng web. Cổng 8765 được giữ cố định để bản nháp trong trình duyệt không bị đổi nguồn lưu sau mỗi lần mở.
+            </p>
+            <p>
+                Nhấp đúp
+                <code>
+                    index.html
+                </code>
+                vẫn xem được giao diện. Nên dùng server HTTP để thử video YouTube và bản nháp: chế độ
+                <code>
+                    file://
+                </code>
+                có thể không gửi thông tin referrer mà trình phát cần. Không cần Python khi web đã được đăng trên hosting tĩnh.
+            </p>
+            <h2>
+                2. Sửa nội dung bằng Content Studio
+            </h2>
+            <p>
+                Mở
+                <code>
+                    studio.html
+                </code>
+                trên cùng địa chỉ với web. Có 5 khu vực:
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <tr>
+                        <th>
+                            Tab
+                        </th>
+                        <th>
+                            Nội dung chỉnh sửa
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Content
+                        </td>
+                        <td>
+                            Tên, giới thiệu, ảnh chính, avatar, email, mạng xã hội, About, kinh nghiệm, học vấn, các lựa chọn Contact, SEO.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Projects
+                        </td>
+                        <td>
+                            Thêm/xóa/sắp xếp project; dán link video; thêm ảnh và chú thích; chọn project nổi bật.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lab
+                        </td>
+                        <td>
+                            Bài tip, nội dung, các bước, code, link tham khảo, GIF, ảnh tĩnh và ẩn/hiện Eye Lab.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tools & appearance
+                        </td>
+                        <td>
+                            Tên/logo công cụ và màu nhấn mặc định.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Text & labels
+                        </td>
+                        <td>
+                            Hơn 200 dòng chữ giao diện: menu, heading, nút, thông báo, nhãn Eye Lab. Có ô tìm kiếm.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                Nội dung được coi là văn bản thuần, không phải HTML. Trong các nhãn có
+                <code>
+                    {count}
+                </code>
+                ,
+                <code>
+                    {title}
+                </code>
+                ,
+                <code>
+                    {name}
+                </code>
+                ..., giữ nguyên phần trong ngoặc nhọn để web điền giá trị tự động.
+            </p>
+            <p>
+                <strong>
+                    Preview draft
+                </strong>
+                mở bản xem thử có nội dung đang sửa. Nếu trình duyệt chặn popup, cho phép popup cho trang này. Trang web thường không tự nhận bản nháp: chỉ bản Preview draft nhận thay đổi ngay.
+            </p>
+            <p>
+                Bản nháp lưu trong trình duyệt, không tự ghi đè file hay tự đăng lên hosting. Đây không phải CMS có tài khoản/máy chủ. Đổi trình duyệt, địa chỉ, cổng hoặc xóa dữ liệu web sẽ dùng kho nháp khác. Nên xuất bản sao lưu thường xuyên.
+            </p>
+            <h2>
+                3. Project: video và Design
+            </h2>
+            <p>
+                Có sẵn
+                <strong>
+                    3 project cho mỗi nhóm Motion, 3D, Story, Ads, Social
+                </strong>
+                , tổng 15 project video. Tất cả dùng link mẫu bạn gửi:
+                <code>
+                    https://youtu.be/0Nb1wj0NeP8
+                </code>
+                .
+            </p>
+            <p>
+                Trong Projects, mở project → thay
+                <strong>
+                    YouTube / video URL
+                </strong>
+                → thay tên, mô tả và cover. Chỉ dán link video thông thường, không dán mã iframe. Thumbnail là ảnh riêng do bạn chọn; web không tự lấy thumbnail từ YouTube. Link ngắn, watch, embed và Shorts được nhận diện; chọn tỷ lệ 16/9, 9/16 hoặc 1/1 theo nội dung.
+            </p>
+            <p>
+                <strong>
+                    Design có 3 project mẫu
+                </strong>
+                , mỗi project có 2 ảnh. Đây là gallery ảnh, không phải video. Dùng
+                <strong>
+                    Add image
+                </strong>
+                , nhập đường dẫn/link ảnh hoặc
+                <strong>
+                    Choose file
+                </strong>
+                . Có chú thích, alt text, đổi thứ tự và xóa ảnh. Người xem dùng thumbnail, nút trước/sau hoặc phím mũi tên để chuyển ảnh. Gallery trống sẽ dùng cover làm ảnh thay thế.
+            </p>
+            <p>
+                Các ảnh cover và mô tả đang là nội dung mẫu, không phải trích xuất hay mô tả đã xác minh của video YouTube. Bỏ chọn
+                <strong>
+                    Sample project
+                </strong>
+                sau khi thay bằng công việc thật của bạn.
+            </p>
+            <p>
+                Video chỉ tạo player khi bấm Play. Link
+                <strong>
+                    Open video on the source site
+                </strong>
+                là lối mở ngoài nếu video hạn chế nhúng. Quyền xem, quyền nhúng, tài khoản và kết nối mạng do YouTube quyết định; bộ source không vượt qua các hạn chế này.
+            </p>
+            <h2>
+                4. Lab: tip có GIF và Eye Lab
+            </h2>
+            <p>
+                Popup tip hiển thị
+                <strong>
+                    bài viết bên trái, GIF bên phải
+                </strong>
+                trên màn hình rộng. Màn hình nhỏ sắp thành một cột. Có 6 GIF minh họa mẫu và ảnh tĩnh đi kèm; đây không phải video quay thao tác thật trong After Effects/Blender.
+            </p>
+            <p>
+                Trong tab Lab, mở note → thay
+                <strong>
+                    GIF demo
+                </strong>
+                ,
+                <strong>
+                    Still poster for the GIF
+                </strong>
+                , alt text và caption. Dán link trực tiếp tới file GIF, không phải trang bài viết chứa GIF. Ví dụ:
+                <code>
+                    assets/lab/my-tip.gif
+                </code>
+                . GIF có nút dừng/chạy; khi dừng, web dùng poster. Không có poster thì hiện thẻ tạm dừng. Chế độ giảm chuyển động bắt đầu với GIF đã dừng.
+            </p>
+            <p>
+                Phần đầu Lab là
+                <strong>
+                    Eye Lab
+                </strong>
+                : kéo joystick để đổi hướng nhìn, chỉnh Look X/Y, Blink left/right và Expression. Có Blink both, Wink L/R, Reset, Follow pointer và Auto blink. Bàn phím: mũi tên, Shift + mũi tên để di chuyển nhanh, Home để về giữa. Auto blink tắt khi đổi trang hoặc mở tip. Đây là tương tác trong trình duyệt, không kết nối với After Effects.
+            </p>
+            <p>
+                Bỏ chọn
+                <strong>
+                    Show the interactive eye controller
+                </strong>
+                trong tab Lab để ẩn toàn bộ phần này. Các nhãn Eye Lab nằm trong
+                <strong>
+                    Text & labels → eye
+                </strong>
+                . Bài chưa chọn Published không xuất vào dữ liệu công khai.
+            </p>
+            <h2>
+                5. Ảnh upload và xuất bản
+            </h2>
+            <p>
+                <strong>
+                    Choose file
+                </strong>
+                nhận PNG, JPG, WebP, GIF; tối đa 8 MB/file và khoảng 24 MB upload trong một bản nháp. Trình duyệt có thể hết dung lượng localStorage sớm hơn. Khi thấy
+                <strong>
+                    Storage unavailable. Export before closing this page.
+                </strong>
+                , phải xuất ngay trước khi đóng tab. Ảnh chỉ chọn trong Studio sẽ được đóng gói cùng bản cập nhật; file chỉ nhập bằng đường dẫn thì bạn cần tự copy đúng vị trí.
+            </p>
+            <p>
+                Sau khi sửa, bấm
+                <strong>
+                    Export update
+                </strong>
+                . Giải nén
+                <code>
+                    tamtam-content-update.zip
+                </code>
+                , sao lưu web cũ rồi chép đè 3 file trong
+                <code>
+                    data/
+                </code>
+                và chép thêm các file trong
+                <code>
+                    assets/uploads/
+                </code>
+                vào web. Tải lại trang để xem bản chính thức. Gói update không chứa lại toàn bộ source website.
+            </p>
+            <p>
+                <strong>
+                    Giữ
+                    <code>
+                        content.json
+                    </code>
+                    ngoại tuyến, không upload lên hosting.
+                </strong>
+                Đây là bản sao lưu đầy đủ, có thể chứa note chưa công khai và upload riêng. Dùng
+                <strong>
+                    Import content.json
+                </strong>
+                để tiếp tục sửa trên máy/trình duyệt khác. Bản 2.2 dùng kho nháp riêng, không tự lấy nháp cũ của 2.1; có thể import file JSON cũ để chuyển nội dung.
+            </p>
+            <p>
+                Để đăng lần đầu, upload nội dung bên trong thư mục V2.2 (gồm index.html, data, components, scripts, styles, assets) tới hosting tĩnh. Không đổi tên các thư mục phụ. Script preview Python và file .bat không cần trên hosting.
+            </p>
+            <p>
+                Các thẻ SEO/Open Graph trong
+                <code>
+                    index.html
+                </code>
+                là bản tĩnh cho bot/link preview. Sau khi đổi tên, mô tả, domain hoặc ảnh share trong Studio, đồng bộ cả thẻ meta trong index.html. Dữ liệu hiển thị cho người dùng cập nhật qua data/site.js.
+            </p>
+            <h2>
+                6. Sửa trực tiếp trong code
+            </h2>
+            <div class="table-wrap">
+                <table>
+                    <tr>
+                        <th>
+                            File/thư mục
+                        </th>
+                        <th>
+                            Vai trò
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            data/site.js
+                        </td>
+                        <td>
+                            Thông tin cá nhân, About, Contact, theme;
+                            <code>
+                                copy
+                            </code>
+                            chứa nhãn giao diện.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            data/projects.js
+                        </td>
+                        <td>
+                            Project;
+                            <code>
+                                video
+                            </code>
+                            chứa link;
+                            <code>
+                                mediaType: "gallery"
+                            </code>
+                            và
+                            <code>
+                                images
+                            </code>
+                            cho Design.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            data/lab.js
+                        </td>
+                        <td>
+                            Tip;
+                            <code>
+                                demoGif
+                            </code>
+                            ,
+                            <code>
+                                demoPoster
+                            </code>
+                            ,
+                            <code>
+                                demoAlt
+                            </code>
+                            ,
+                            <code>
+                                demoCaption
+                            </code>
+                            cho minh họa.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            components/
+                        </td>
+                        <td>
+                            HTML template theo trang, đã xuống dòng và thụt lề.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            scripts/app.js
+                        </td>
+                        <td>
+                            Điều hướng, dialog, search, player, gallery và bản nháp.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            scripts/eye-rig.js
+                        </td>
+                        <td>
+                            Joystick, chuyển động mắt, chớp mắt và sự kiện.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            scripts/studio.js
+                        </td>
+                        <td>
+                            Form chỉnh sửa, upload, import và export ZIP.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            styles/media-lab.css
+                        </td>
+                        <td>
+                            Giao diện Eye Lab, gallery và popup GIF.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            assets/lab/
+                        </td>
+                        <td>
+                            GIF và poster mẫu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            assets/uploads/
+                        </td>
+                        <td>
+                            File ảnh/GIF xuất từ Studio.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                Source không nén/minify. JavaScript, CSS và HTML đã tách dòng/thụt lề; file data dùng cấu trúc rõ ràng.
+                <code>
+                    .editorconfig
+                </code>
+                giúp editor giữ quy cách. Không có dependency JavaScript bên ngoài.
+            </p>
+            <h2>
+                7. Phạm vi kiểm tra
+            </h2>
+            <p>
+                Xem
+                <code>
+                    TEST-REPORT.md
+                </code>
+                . Source đã chạy qua kiểm tra cú pháp và kiểm thử giao diện trong Chromium ngoại tuyến, gồm desktop/mobile giả lập, Eye Lab, GIF, gallery, form và xuất/nhập ZIP. Chưa xác nhận video YouTube phát qua mạng thật, Safari/iOS hay hosting của bạn. Trước khi thay bản đang public, hãy sao lưu bản cũ và thử trên máy của bạn.
+            </p>
+            <footer>
+                TamTam Portfolio V2.2 / 18.09.2026
+            </footer>
+        </main>
+    </body>
+</html>
